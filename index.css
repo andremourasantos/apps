@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+/*↓ ÍCONES ↓*/
+#icone_Ajustes > i {transform: rotate(90deg);}
+
+/*↓ MAIN ↓*/
+main.duas_colunas > section:nth-child(1) > article {width: 70%; margin: auto;}
+main.duas_colunas > section:nth-child(1) > article h2 {margin-bottom: 10px;}
+main.duas_colunas > section:nth-child(1) > article p {margin: 10px auto;}
+body > main > section:nth-child(2) > img {margin-inline: auto; width: 100%; height: fit-content;}
+
+/*↓ SEÇÃO DE FERRAMENTAS ↓*/
+#ferramentas {padding: 60px 0px;}
+#ferramentas * {text-align: center;}
+#fachada_de_ferramentas {width: min(80%); margin-inline: auto; display: flex; gap: 30px; justify-content: center; align-items: center; padding: 60px 0 0 0;}
+
+.apresentacao_ferramenta {width: 200px; height: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 20px; cursor: pointer; border-radius: var(--arredondamento_borda); padding: 0px 20px; box-shadow: 0 0 6px #00000030;}
+
+.apresentacao_ferramenta p {font-size: var(--tamanho_texto_p); margin-top: 10px;}
+
+.apresentacao_ferramenta img {background-color: var(--cor_plano_de_fundo);}
+
+/*↓ RESPONSIVIDADE ↓*/
+@media screen and (max-width: 1024px) {
+    main.duas_colunas > section:nth-child(1) {order: 2;}
+}
+
+@media screen and (max-width: 600px) {
+    main > section:nth-child(1) > article {text-align: center; width: 100%;}
+    #fachada_de_ferramentas {flex-direction: column;}
+    .apresentacao_ferramenta {height: 365px;}
+}
+ 
+@media screen and (max-width: 425px) {
+    main.duas_colunas > section:nth-child(1) > article {width: 100%;}
+    #acessarGitHub {display: block;}
+    #ferramentas > div:nth-child(1) {width: 80%; margin-inline: auto;}
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- SEO TAGS -->
+    <meta property="og:title" content="Ferramentas do dia-a-dia">
+    <meta property="og:description" content="Crie textos para utilizar em protótipos, designs ou projetos pessoais para simular conteúdos reais.">
+    <meta name="description" content="Crie textos para utilizar em protótipos, designs ou projetos pessoais para simular conteúdos reais.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="app.andremourasantos.com/">
+    <meta name="image" property="og:image" content="https://andremourasantos.com/loremipsum/capa.png">
+
+    <!-- OUTRAS TAGS -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="André Moura Santos">
+    <meta name="application-name" content="Ferramentas de André">
+    <meta name="theme-color" content="#FDFBEE"/>
+    
+    <!-- PRECONNECT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link rel="stylesheet" href="https://andremourasantos.com" crossorigin="anonymous">
+
+    <!-- LINKS -->
+    <link rel="stylesheet" href="universal.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="shortcut icon" href="https://andremourasantos.com/imagens/favicon.ico" type="image/x-icon">
+
+    <title>Ferramentas de André</title>
+</head>
+<body>
+    <main style="display: flex; flex-direction: column; gap: 20px; justify-content: center; align-items: center; width: 100vw; height: calc(100vh - 10vh); text-align: center;">
+        <img src="imagens/404.png" alt="" height="156" width="156">
+        <div style="width: 300px;">
+            <h2>Página não encontrada...</h2>
+            <p style="margin: 10px auto;">Parece que você está tentando acessar uma página que não existe.</p>
+             <button class="btn_popup btn_acao_popup" style="width: 200px; margin: 20px auto 0px auto;">Voltar</button>
+        </div>
+    </main>
+    <footer></footer>
+<script>
+    document.querySelector('body > main > div > button').addEventListener('click', ()=>{window.location = `https://${window.location.hostname}`})
+
+    window.addEventListener('DOMContentLoaded', ()=>{
+    const rodape = document.querySelector('footer')
+    const mensagemErro = `<p>Não foi possível carregar este item :/</p>`
+
+    //CARREGAMENTO DOS PEDAÇOS
+    fetch('/pedaco/footer.html').then(res=>{
+        if(res.status == 404){throw new Error(404)} else {
+            res = res.text().then(data => rodape.innerHTML = data)}
+    }).catch(erro => {rodape.innerHTML = mensagemErro})
+})
+</script>
+</body>
+</html>
