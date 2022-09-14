@@ -103,9 +103,9 @@ footer {height: fit-content; padding: 20px 40px; display: flex; align-items: cen
 footer p, footer a {text-align: center; color: var(--cor_texto);}
 
 /*↓ POPUPS ↓*/
-#container_popup {display: flex; align-items: center; justify-content: center; position: fixed; inset: 0 0 0 0;  background-color: #00000030; backdrop-filter: blur(2px);}
+#container_popup {display: flex; align-items: center; justify-content: center; position: fixed; inset: 0 0 0 0;  background-color: #00000030;}
 
-article.popup {display: block; width: calc(80vw - 80px); max-width: 400px; min-height: fit-content; max-height: 80%; overflow-y: scroll; background-color: var(--cor_plano_de_fundo); border-radius: var(--arredondamento_borda); padding: 40px; text-align: center; z-index: 999; animation: popupAparecer 250ms ease-out;}
+article.popup {display: block; position: absolute; width: calc(80vw - 80px); max-width: 400px; min-height: fit-content; max-height: 80%; overflow-y: scroll; background-color: var(--cor_plano_de_fundo); border-radius: var(--arredondamento_borda); padding: 40px; text-align: center; z-index: 999; animation: popupAparecer 250ms ease-out;}
 
     @keyframes popupAparecer {
         0% {transform: scale(0.9); opacity: 0;}
@@ -120,6 +120,42 @@ article.popup {display: block; width: calc(80vw - 80px); max-width: 400px; min-h
 article.popup h2 {margin-top: 20px;}
 article.popup p {margin: 20px auto;}
 .container_btns_popup {margin-top: 20px;}
+
+    /*↓ PUAU ↓*/
+    #container_opcoes_PUAU {width: 100%; text-align: left;}
+    article.opcao_PUAU {display: flex; align-items: center; margin: 36px auto;}
+    article.opcao_PUAU > div:first-of-type {width: 70%;}
+    article.opcao_PUAU > div:first-of-type p {margin: 5px 0 0 0; font-size: var(--tamanho_texto_p);}
+    article.opcao_PUAU > div:last-child {width: 30%;text-align: center;}
+
+    article.opcao_PUAU input[type=checkbox] {
+        appearance: none;
+        background-color: #E2EDEE;
+        border-radius: 100px;
+        width: 70px;
+        height: 36px;
+        cursor: pointer;
+        transition: 250ms;
+    }
+
+    article.opcao_PUAU input[type=checkbox]:disabled {background-color: #e6e6e6; opacity: 0.6   ; cursor: not-allowed;}
+
+    article.opcao_PUAU input[type=checkbox]::before {
+        content: '';
+        height: 28px;
+        width: 28px;
+        border-radius: 100px;
+        background-color: white;
+        position: absolute;
+        margin-top: 4px;
+        margin-left: 4px;
+        transition: 250ms;
+        box-shadow: 0 0 3px #00000030;
+    }
+
+    article.opcao_PUAU input[type=checkbox]:checked {background-color: var(--cor_icones);}
+
+    article.opcao_PUAU input[type=checkbox]:checked::before {margin-left: 38px; box-shadow: none;}
 
     /*↓ MINI POPUPS ↓*/
     article.minipopup {display:flex; flex-direction: column;justify-content: center; align-items: center; gap: 20px; max-width: calc(300px - 80px); max-height: calc(80vh - 80px); padding: 40px; text-align: center; color: var(--cor_texto); background-color: var(--cor_plano_de_fundo); border-radius: var(--arredondamento_borda); animation: popupAparecer 250ms ease-out;}
@@ -139,7 +175,7 @@ input[type=number]::-webkit-inner-spin-button {display: none;}
     #container_ferramenta{height: fit-content;}
 }
 
-@media screen and (max-height: 600px) and (min-width: 768px){
+@media screen and (max-height: 500px) and (min-width: 768px){
     main.duas_colunas {height: fit-content;}
     header {height: fit-content; padding: 20px 0px;}
     main.duas_colunas {height: fit-content;}
@@ -156,8 +192,12 @@ input[type=number]::-webkit-inner-spin-button {display: none;}
 @media screen and (max-width: 425px) {
     h1,h2 {font-size: var(--tamanho_titulo_p);}
     article.popup p {text-align: justify;}
+
+    article.opcao_PUAU {flex-wrap: wrap; gap: 12px;}
+    article.opcao_PUAU > div:first-of-type {width: 100%;}
+    article.opcao_PUAU > div:last-child {width: fit-content;}
 }
 
 @media screen and (max-width: 375px) {
-    h1,h2,h3,h4 {max-width: fit-content;}
+    h1,h2,h3,h4 {max-width: fit-content; text-align: center; margin-inline: auto;}
 }

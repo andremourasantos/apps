@@ -3,11 +3,11 @@
 <head>
     <!-- SEO TAGS -->
     <meta property="og:title" content="Ferramentas do dia-a-dia">
-    <meta property="og:description" content="Crie textos para utilizar em protótipos, designs ou projetos pessoais para simular conteúdos reais.">
-    <meta name="description" content="Crie textos para utilizar em protótipos, designs ou projetos pessoais para simular conteúdos reais.">
+    <meta property="og:description" content="Veja em um só lugar todas as minhas ferramentas!">
+    <meta name="description"  content="Veja em um só lugar todas as minhas ferramentas!">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="app.andremourasantos.com/">
-    <meta name="image" property="og:image" content="https://andremourasantos.com/loremipsum/capa.png">
+    <meta property="og:url" content="apps.andremourasantos.com">
+    <meta name="image" property="og:image" content="https://apps.andremourasantos.com/imagens/capa.png"
 
     <!-- OUTRAS TAGS -->
     <meta charset="UTF-8">
@@ -44,8 +44,8 @@
         <!--DIREITA/BAIXO-->
         <section>
             <button class="btn_menu_icone" id="alteraTemaPagina"><i class="ph-sun-fill"></i></button>
-            <button class="btn_menu_icone" id="icone_Ajustes" onclick="abrirPopup('#popup_ajustes')"><i class="ph-sliders-fill"></i></button>
-            <button class="btn_menu_icone" id="icone_Info" onclick="abrirPopup('#popup_sobre')"><i class="ph-info-fill"></i></button>
+            <button class="btn_menu_icone" id="icone_Ajustes" onclick="abrirPopup('popup_puau')"><i class="ph-sliders-fill"></i></button>
+            <button class="btn_menu_icone" id="icone_Info" onclick="abrirPopup('popup_sobre')"><i class="ph-info-fill"></i></button>
         </section>
     </header>
     <main class="duas_colunas">
@@ -87,43 +87,33 @@
     </section>
     <footer></footer>
 
+<!--POPUPS-->
 <section style="display: none;" id="container_popup">
+    <!--SOBRE-->
     <article class="popup" id="popup_sobre" style="display: none;">
         <img loading="lazy" src="imagens/sobre_popup.png" alt="" height="128" width="128">
             <aside>
                 <h2>Sobre o projeto</h2>
                 <p>Nesta página você poderá ver todos os projetos que desenvolvi para aprimorar minhas habilidades com o desenvolvimento web. Todas as ferrametnas são de livre acesso e sem anúncios.</p>
-                <p>Confira as últimas novidades da ferramenta <span style="text-decoration: underline; cursor: pointer;" onclick="abrirPopup('#popup_log_novidades')">clicando aqui</span>!</p>
+                <p>Confira as últimas novidades da ferramenta <span style="text-decoration: underline; cursor: pointer;" onclick="abrirPopup('popup_log_novidades')">clicando aqui</span>!</p>
                 <p>Todo o código da página é de livre acesso e se encontra no repositório do GitHub de André Moura Santos, com licença MIT.</p>
                 <div class="container_btns_popup">
-                    <button class="btn_popup btn_fechar_popup" onclick="fecharPopup('#popup_sobre')">Fechar</button>
+                    <button class="btn_popup btn_fechar_popup" onclick="fecharPopup('popup_sobre')">Fechar</button>
                     <button class="btn_popup btn_acao_popup" id="link_github_popup">GitHub</button>
                 </div>
             </aside>
     </article>
 
-    <!--AJUSTES-->
-    <article class="popup" id="popup_ajustes">
-        <img loading="lazy" src="imagens/novidades_versao.png" alt="" height="128" width="128">
-        <aside>
-            <h2>Ajustes</h2>
-            <p><em>&gt; Essa função ainda está em desenvolvimento. &lt;</em></p>
-            <p>Aqui você poderá conferir ajustes e opções de acessibilidade para facilitar o seu uso da página.</p>
-            <div class="container_btns_popup">
-                <button class="btn_popup btn_fechar_popup" onclick="fecharPopup('#popup_ajustes')">Fechar</button>
-            </div>
-        </aside>
-    </article>
-
-    <!--LOG-->
+    <!--NOVIDADES-->
     <article class="popup" id="popup_log_novidades">
         <img loading="lazy" src="imagens/novidades_versao.png" alt="" height="128" width="128">
         <aside>
-            <h2>Parece que você chegou cedo!</h2>
-            <p>Que legal, você está vendo a primeira versão da ferramenta!</p>
-            <p>O que achou das novidades? Você pode conferir as mudanças mais técnicas diretamente no meu <span style="text-decoration: underline; cursor: pointer;" onclick="abrirPopup('#popup_sobre')">repositório do GitHub</span>!</p>
+            <h2>Tem novidade desde a sua última visita!</h2>
+            <p>Esta página está sempre sendo atualizada, confira as novidades mais recentes:</p>
+            <p><strong>Conheça o PUAU:</strong> O novo <em style="text-decoration: underline; cursor: pointer;" onclick="abrirPopup('popup_puau')">Painel Universal de Ajustes do Usuário</em> está disponvível agora nesta página! Com ele você pode salvar suas preferências de uso e muito mais.</p>
+            <p>O que achou das novidades? Você pode conferir as mudanças mais técnicas diretamente no meu <span style="text-decoration: underline; cursor: pointer;" onclick="abrirPopup('popup_sobre')">repositório do GitHub</span>!</p>
             <div class="container_btns_popup">
-                <button class="btn_popup btn_fechar_popup" onclick="fecharPopup('#popup_log_novidades')">Fechar</button>
+                <button class="btn_popup btn_fechar_popup" onclick="fecharPopup('popup_log_novidades')">Fechar</button>
             </div>
         </aside>
     </article>
@@ -134,12 +124,12 @@
         <img src="https://andremourasantos.com/imagens/favicon.ico" alt="" height="96" width="96">
         <div>
             <h3>Boas-vindas!</h3>
-            <p>Conheça as ferrammetnas criadas por mim.</p>
+            <p>Conheça as ferramentas criadas por mim.</p>
         </div>
     </article>
 </section>
 
-<script src="index.js"></script>
-<script src="essencial.js"></script>
+<script defer src="index.js"></script>
+<script defer src="essencial.js"></script>
 </body>
 </html>

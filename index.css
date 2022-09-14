@@ -7,7 +7,7 @@
 main.duas_colunas > section:nth-child(1) > article {width: 70%; margin: auto;}
 main.duas_colunas > section:nth-child(1) > article h2 {margin-bottom: 10px;}
 main.duas_colunas > section:nth-child(1) > article p {margin: 10px auto;}
-body > main > section:nth-child(2) > img {margin-inline: auto; width: 100%; height: fit-content;}
+body > main > section:nth-child(2) > img {display: block; margin-inline: auto; max-width: 425px; width: 100%; height: fit-content;}
 
 /*↓ SEÇÃO DE FERRAMENTAS ↓*/
 #ferramentas {padding: 60px 0px;}
