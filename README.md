@@ -16,6 +16,9 @@ Esse site agrupa todas as ferramentas criadas por mim, bem como recursos e outro
 - - - 
 
 ## Log
+- **Atualização 2.1**
+    - Corrigido erro no universal.css que gerava problemas de responsividade em outras ferramentas.
+
 - **Atualização 2.0**
     - Adição de imagens em maior resolução.
     - Atualização do uso da API Fetch.

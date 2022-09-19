@@ -175,11 +175,12 @@ input[type=number]::-webkit-inner-spin-button {display: none;}
     #container_ferramenta{height: fit-content;}
 }
 
-@media screen and (max-height: 500px) and (min-width: 768px){
+@media screen and (max-height: 500px) and (min-width: 768px){article.popup {max-height: 50%;}}
+
+@media screen and (max-height: 600px) and (min-width: 768px){
     main.duas_colunas {height: fit-content;}
     header {height: fit-content; padding: 20px 0px;}
     main.duas_colunas {height: fit-content;}
-    article.popup {max-height: 50%;}
 }
 
 @media screen and (max-width: 768px) {
