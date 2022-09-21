@@ -1,10 +1,25 @@
 //↓↓ SCRIPTS PRIMORDIAIS
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', async () => {
     //CONFERIR ARMAZENAMENTO LOCAL
     if(localStorage.getItem(`Info${Ferramenta.nome}`) == null){localStorage.setItem(`Info${Ferramenta.nome}`, Ferramenta.info)}
 
     /*REFERÊNCIA DE TEMA*/
     if(pegarDadosLocais('temaDaPagina') != null){alterarTema(0)}
+
+    //CARREGAR ARQUIVOS
+    const rodape = document.querySelector('footer')
+    const popups = document.querySelector('#container_popup')
+
+    importarRodape = async () => {
+        const res = await fetch('/pedaco/footer.html');
+        rodape.innerHTML = (await res.text()).toString()
+    }; importarRodape();
+
+    importarPUAU = async () => {
+        const res = await fetch('/pedaco/puau.html');
+        popups.innerHTML += (await res.text()).toString();
+        autoAjustePUAU();
+    }; importarPUAU();
 })
 
 //↓↓ EVENTOS PÓS CARRAGAMENTO
@@ -70,21 +85,21 @@ function alterarTema(interacao=0){
     if(interacao===0){
         switch (pegarDadosLocais('temaDaPagina')) {
             case 'Escuro':
-                document.body.classList.add('modo_escuro'); icone.className = 'ph-moon-fill'; icone.style.transform = 'scaleX(-1)';
+                document.body.classList.add('modo_escuro'); icone.className = 'ph-sun-fill'; icone.style.transform = 'scaleX(1)';
                 break;
         
             default:
-                document.body.classList.remove('modo_escuro'); icone.className = 'ph-sun-fill'; icone.style.transform = 'scaleX(1)';
+                document.body.classList.remove('modo_escuro'); icone.className = 'ph-moon-fill'; icone.style.transform = 'scaleX(-1)';
                 break;
         }
     } else {
         switch (pegarDadosLocais('temaDaPagina')) {
             case 'Escuro':
-                document.body.classList.remove('modo_escuro'); pegarDadosLocais('temaDaPagina', 'Claro'); icone.className = 'ph-sun-fill'; icone.style.transform = 'scaleX(1)';
+                document.body.classList.remove('modo_escuro'); pegarDadosLocais('temaDaPagina', 'Claro'); icone.className = 'ph-moon-fill'; icone.style.transform = 'scaleX(-1)';
                 break;
         
             default:
-                document.body.classList.add('modo_escuro'); pegarDadosLocais('temaDaPagina', 'Escuro'); icone.className = 'ph-moon-fill'; icone.style.transform = 'scaleX(-1)';
+                document.body.classList.add('modo_escuro'); pegarDadosLocais('temaDaPagina', 'Escuro'); icone.className = 'ph-sun-fill'; icone.style.transform = 'scaleX(1)';
                 break;
         }
     }
@@ -156,3 +171,6 @@ function pegarDadosLocais(item, valor=null) {
     }
     return null;
 }
+
+//↓↓ ABRIR LINK
+function abrirLink(link,alvo='_blank',delay=0){setTimeout(()=>{window.open(`https://${link}`, `${alvo}`)},delay)}

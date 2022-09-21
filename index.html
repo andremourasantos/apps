@@ -7,7 +7,7 @@
     <meta name="description"  content="Veja em um só lugar todas as minhas ferramentas!">
     <meta property="og:type" content="website">
     <meta property="og:url" content="apps.andremourasantos.com">
-    <meta name="image" property="og:image" content="https://apps.andremourasantos.com/imagens/capa.png"
+    <meta name="image" property="og:image" content="https://apps.andremourasantos.com/imagens/capa.png">
 
     <!-- OUTRAS TAGS -->
     <meta charset="UTF-8">
@@ -28,7 +28,9 @@
     <link rel="shortcut icon" href="https://andremourasantos.com/imagens/favicon.ico" type="image/x-icon">
 
     <!--SCRIPTS-->
-    <script async src="https://unpkg.com/phosphor-icons"></script>
+    <script defer src="https://unpkg.com/phosphor-icons"></script>
+    <script defer src="index.js"></script>
+    <script defer src="essencial.js"></script>
 
     <title>Ferramentas de André</title>
 </head>
@@ -43,7 +45,7 @@
         </section>
         <!--DIREITA/BAIXO-->
         <section>
-            <button class="btn_menu_icone" id="alteraTemaPagina"><i class="ph-sun-fill" title="Alterar tema da página."></i></button>
+            <button class="btn_menu_icone" id="alteraTemaPagina" onclick="alterarTema(1)"><i class="ph-moon-fill" title="Alterar tema da página."></i></button>
             <button class="btn_menu_icone" id="icone_Ajustes" onclick="abrirPopup('popup_puau')" title="Painel de ajustes e acessibilidade."><i class="ph-sliders-fill"></i></button>
             <button class="btn_menu_icone" id="icone_Info" onclick="abrirPopup('popup_sobre')" title="Sobre o projeto."><i class="ph-info-fill"></i></button>
         </section>
@@ -69,14 +71,14 @@
             <p>Veja a coleção de ferramentas disponíveis.</p>
         </div>
         <article id="fachada_de_ferramentas">
-            <div id="geradorLoremIpsum" class="apresentacao_ferramenta">
+            <div id="loremipsum" class="apresentacao_ferramenta" onclick="(abrirLink('andremourasantos.com/loremipsum'))">
                 <img loading="lazy" src="https://andremourasantos.com/loremipsum/logo.png" alt="" height="96" width="96">
                 <div>
                     <h3>Gerador de Lorem Ipsum</h3>
                     <p>Crie textos para utilizar em protótipos, designs ou projetos pessoais para simular conteúdos reais.</p>
                 </div>
             </div>
-            <div id="linkDeWhatsApp" class="apresentacao_ferramenta">
+            <div id="wplink" class="apresentacao_ferramenta" onclick="(abrirLink('andremourasantos.com/wplink'))">
                 <img loading="lazy" src="https://andremourasantos.com/wplink/logo.png" alt="" height="96" width="96">
                 <div>
                     <h3>Link de WhatsApp</h3>
@@ -85,7 +87,9 @@
             </div>
         </article>
     </section>
-    <footer></footer>
+    <footer>
+        <p>Desenvolvido por <a href="http://andremourasantos.com" target="_blank" rel="next">André Moura Santos</a>. Ícones de <a href="https://phosphoricons.com/" target="_blank" rel="noopener noreferrer">Phospor Icons</a> e <a href="https://www.flaticon.com/authors/kawaii/flat" target="_blank" rel="noopener noreferrer">Flaticon</a>. Feito no &#x1F1E7;&#x1F1F7; Brasil.</p>
+    </footer>
 
 <!--POPUPS-->
 <section style="display: none;" id="container_popup">
@@ -99,7 +103,7 @@
                 <p>Todo o código da página é de livre acesso e se encontra no repositório do GitHub de André Moura Santos, com licença MIT.</p>
                 <div class="container_btns_popup">
                     <button class="btn_popup btn_fechar_popup" onclick="fecharPopup('popup_sobre')">Fechar</button>
-                    <button class="btn_popup btn_acao_popup" id="link_github_popup">GitHub</button>
+                    <button class="btn_popup btn_acao_popup" onclick="abrirLink('github.com/andremourasantos/apps','_blank', 250)">GitHub</button>
                 </div>
             </aside>
     </article>
@@ -128,8 +132,5 @@
         </div>
     </article>
 </section>
-
-<script defer src="index.js"></script>
-<script defer src="essencial.js"></script>
 </body>
 </html>

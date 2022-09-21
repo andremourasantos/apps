@@ -16,6 +16,14 @@ Esse site agrupa todas as ferramentas criadas por mim, bem como recursos e outro
 - - - 
 
 ## Log
+- **Atualização 2.2**
+    - Agora o código para importação dos pedaços está presente no essencial.js.
+    - Alterada cor do botão principal para aumentar visibilidade.
+    - Alterado ordem de exibição entre os ícones do Tema Claro e Escuro.
+    - Corrigido erro de não abertura de links externos em botões dos popups.
+    - Corrigido erro de não exibição dos estilos da página de 404 quando dentro de um diretório no domínio.
+    
+
 - **Atualização 2.1**
     - Corrigido erro no universal.css que gerava problemas de responsividade em outras ferramentas.
 
