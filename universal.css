@@ -58,6 +58,7 @@
 /*↓ ESTILOS GERAIS ↓*/
 html {scroll-behavior: smooth;}
 *{padding:0;margin:0;font-family: var(--texto_geral);}
+a {text-decoration: none;}
 h1, h2, h3, h4, h5, h6 {font-family: var(--texto_titulo);}
 h1 {font-size: var(--tamanho_titulo_g); color: var(--cor_titulo_principal);}
 h2 {font-size: var(--tamanho_titulo_m); color: var(--cor_texto);}
@@ -101,6 +102,7 @@ i {color: var(--cor_icones);font-size: 40px; text-align: center;}
 /*↓ RODAPÉ ↓*/
 footer {height: fit-content; padding: 20px 40px; display: flex; align-items: center; justify-content: center; height: calc(10vh - 40px);}
 footer p, footer a {text-align: center; color: var(--cor_texto);}
+footer a {text-decoration: underline;}
 
 /*↓ POPUPS ↓*/
 #container_popup {display: flex; align-items: center; justify-content: center; position: fixed; inset: 0 0 0 0;  background-color: #00000030;}

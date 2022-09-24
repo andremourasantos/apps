@@ -1,0 +1,102 @@
+{
+	// Place your apps workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+
+	"indexHMTL": {
+		"scope": "html",
+		"prefix": ["!apps", "!indexHTML"],
+		"body": [
+			"<!DOCTYPE html>",
+			"<html lang=\"pt-br'>\"",
+			"<head>",
+				"\t<!-- SEO TAGS -->",
+				"\t<meta property=\"og:title\" content=\"$2\">",
+				"\t<meta property=\"og:description\" content=\"\">",
+				"\t<meta name=\"description\"  content=\"\">",
+				"\t<meta property=\"og:type\" content=\"website\">",
+				"\t<meta property=\"og:url\" content=\"apps.andremourasantos.com\">",
+				"\t<meta name=\"image\" property=\"og:image\" content=\"\">",
+				"",
+				"\t<!-- OUTRAS TAGS -->",
+				"\t<meta charset=\"UTF-8\">",
+				"\t<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">",
+				"\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+				"\t<meta name=\"author\" content=\"André Moura Santos\">",
+				"\t<meta name=\"application-name\" content=\"$3\">",
+				"\t<meta name=\"theme-color\" content=\"#FDFBEE\"/>",
+				"",
+				"\t<!-- PRECONNECT -->",
+				"\t<link rel=\"preconnect\" href=\"https://fonts.gstatic.com/\" crossorigin>",
+				"\t<link rel=\"preconnect\" href=\"https://unpkg.com/\" crossorigin>",
+				"",
+				"\t<!-- LINKS -->",
+				"\t<link rel=\"stylesheet\" href=\"/universal.css\">",
+				"\t<link rel=\"shortcut icon\" href=\"\" type=\"image/png\">",
+				"",
+				"\t<!--SCRIPTS-->",
+				"\t<script defer src=\"https://unpkg.com/phosphor-icons\"></script>",
+				"\t<script defer src=\"/essencial.js\"></script>",
+				"",
+				"\t<title>$1</title>",
+			"</head>",
+			"<body>",
+				"\t<header>",
+					"\t\t<!--ESQUERCA/CIMA-->",
+					"\t\t<section>",
+						"\t\t\t<img src=\"\" alt=\"\" height=\"60\" width=\"60\">",
+						"\t\t\t<div>",
+							"\t\t\t\t<h1>$4</h1>",
+							"\t\t\t\t<p>$5.</p>",
+						"\t\t\t</div>",
+					"\t\t</section>",
+					"\t\t<!--DIREITA/BAIXO-->",
+					"\t\t<section>",
+						"\t\t\t<button class=\"btn_menu_icone\" id=\"alteraTemaPagina\" onclick=\"alterarTema(1)\"><i class=\"ph-moon-fill\" title=\"Alterar tema da página.\"></i></button>",
+						"\t\t\t<button class=\"btn_menu_icone\" id=\"icone_Ajustes\" onclick=\"abrirPopup('popup_puau')\" title=\"Painel de ajustes e acessibilidade.\"><i class=\"ph-sliders-fill\"></i></button>",
+						"\t\t\t<button class=\"btn_menu_icone\" id=\"icone_Info\" onclick=\"abrirPopup('popup_sobre')\" title=\"Sobre o projeto.\"><i class=\"ph-info-fill\"></i></button>",
+					"\t\t</section>",
+				"\t</header>",
+				"\t<main class=\"${duas_colunas}\">",
+					"\t\t<!--ESQUERDA/CIMA-->",
+					"\t\t<section id=\"container_ferramenta\">",
+					"\t\t\t<div id=\"ferramenta\">",
+					"\t\t\t</div>",
+					"\t\t</section>",
+
+					"\t\t<!--DIREITA/BAIXO-->",
+					"\t\t<section id=\"informacoes\">",
+					"\t\t\t<article id=\"container_informacoes\">",
+					"\t\t\t\t<img loading=\"lazy\" src=\"/imagens/questao.png\" alt=\"Ícone de pergunta.\" height=\"96\" width=\"96\">",
+					"\t\t\t\t<h2>Como funciona?</h2>",
+					"\t\t\t\t<p>$0</p>",
+					"\t\t\t</article>",
+					"\t\t</section>",
+				"\t</main>",
+				"\t<footer>",
+        			"\t\t<p>Desenvolvido por <a href=\"https://andremourasantos.com\" target=\"_blank\" rel=\"prev\">André Moura Santos</a>. Ícones de <a href=\"https://phosphoricons.com/\" target=\"_blank\" rel=\"noopener noreferrer\">Phospor Icons</a> e <a href=\"https://www.flaticon.com/authors/kawaii/flat\" target=\"_blank\" rel=\"noopener noreferrer\">Flaticon</a>. Feito no &#x1F1E7;&#x1F1F7; Brasil.</p>",
+    			"\t</footer>",
+				"",
+				"<!--POPUPS-->",
+				"<section style=\"display: none;\" id=\"container_popup\">",
+				"\t",
+				"<section>",
+			"</body>",
+			"</html>"
+		],
+		"description": "Cria um arquivo HTML completo com base no layout de ferramenta Duas Colunas."
+	}
+}
