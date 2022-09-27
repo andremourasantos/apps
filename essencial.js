@@ -11,14 +11,23 @@ window.addEventListener('DOMContentLoaded', async () => {
     const popups = document.querySelector('#container_popup')
 
     importarRodape = async () => {
-        const res = await fetch('/pedaco/footer.html');
-        rodape.innerHTML = (await res.text()).toString()
+        try {
+            const res = await fetch('https://apps.andremourasantos.com/pedaco/footer.html');
+        } catch (erro) {
+            console.log(erro)
+        }
     }; importarRodape();
 
     importarPUAU = async () => {
-        const res = await fetch('/pedaco/puau.html');
-        popups.innerHTML += (await res.text()).toString();
-        autoAjustePUAU();
+        try {
+            const res = await fetch('https://apps.andremourasantos.com/pedaco/puau.html');
+            popups.innerHTML += (await res.text()).toString();autoAjustePUAU();
+        } catch (erro) {
+            //>>TROCAR PARA FETCH POR URL NA VERSÃO FINAL.
+            const resErro = await fetch('/pedaco/erro_fetch.html')
+            popups.innerHTML += (await resErro.text()).toString()
+            trocarOnClickAcionador('icone_Ajustes', 'popup_erroFetch')
+        }
     }; importarPUAU();
 })
 
@@ -49,6 +58,9 @@ window.addEventListener('load', ()=>{
         } else {}
     }
 })
+
+//↓↓ SCRIPTS DE IMPORTAÇÃO
+
 
 //↓↓ AUTO AJUSTE DO PUAU
 function autoAjustePUAU(){
@@ -113,6 +125,19 @@ function alterarTema(interacao=0){
             document.querySelectorAll('meta').forEach(meta => {if(meta.name === 'theme-color'){meta.content = '#FDFBEE'}})
             break;
     }
+}
+
+//↓↓ CHAMAR FETCH DE ERRO
+//Não funciona por algum motivo...
+async function chamarPopupErroFetch(){
+    const res = await fetch('/pedaco/erro_fetch.html')
+    return (await res.text()).toString()
+}
+
+//↓↓ ALTERA ATRIBUTO ONCLICK
+function trocarOnClickAcionador(acionador, novoID) {
+    const elemento = document.querySelector(`#${acionador}`)
+    elemento.setAttribute('onclick', `abrirPopup('${novoID}')`)
 }
 
 //↓↓ POPUPS

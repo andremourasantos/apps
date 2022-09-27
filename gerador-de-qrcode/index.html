@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="pt-br'>"
+<html lang="pt-br>"
 <head>
     <!-- SEO TAGS -->
     <meta property="og:title" content="Gerador de QR Code">
-    <meta property="og:description" content="">
-    <meta name="description"  content="">
+    <meta property="og:description" content="Crie QR Codes (Códigos de resposta rápida) facilmente com esta ferramenta!">
+    <meta name="description"  content="Crie QR Codes (Códigos de resposta rápida) facilmente com esta ferramenta!">
     <meta property="og:type" content="website">
     <meta property="og:url" content="apps.andremourasantos.com">
-    <meta name="image" property="og:image" content="">
+    <meta name="image" property="og:image" content="https://apps.andremourasantos.com/gerador-de-qrcode/capa.png">
 
     <!-- OUTRAS TAGS -->
     <meta charset="UTF-8">
@@ -23,7 +23,7 @@
 
     <!-- LINKS -->
     <link rel="stylesheet" href="/universal.css">
-    <link rel="shortcut icon" href="" type="image/png">
+    <link rel="shortcut icon" href="logo.png" type="image/png">
 
     <!--SCRIPTS-->
     <script defer src="https://unpkg.com/phosphor-icons"></script>
@@ -35,7 +35,7 @@
     <header>
         <!--ESQUERCA/CIMA-->
         <section>
-            <img src="" alt="" height="60" width="60">
+            <img src="logo.png" alt="" height="60" width="60">
             <div>
                 <h1>Gerador de QR Code</h1>
                 <p>Crie QR Codes estáticos facilmente.</p>
@@ -59,7 +59,7 @@
             <article id="container_informacoes">
                 <img loading="lazy" src="/imagens/questao.png" alt="Ícone de pergunta." height="96" width="96">
                 <h2>Como funciona?</h2>
-                <p>Crie QR Codes (Códigos de resposta rápida) facilmente com esta ferramenta! Para criar um QR Code, basta inserir o link desejado na entrada e, então, clicar no botão "Criar QR Code".</p>
+                <p>Crie QR Codes (Códigos de resposta rápida) facilmente com esta ferramenta! Para criar um QR Code, basta inserir o link desejado na entrada e clicar no botão "Criar QR Code".</p>
                 <p>Os QR Codes gerados são do tipo estático, ou seja, que não podem ser alterados após criados. Você pode compartilhar o QR Code diretamente pela ferramenta ou baixar a imagem gerada!</p>
             </article>
         </section>
@@ -77,12 +77,25 @@
                 <h2>Sobre o projeto</h2>
                 <p>Este projeto utiliza a API do Google para criar QR Codes estáticos de validade ilimitada. Seu pedido é enviado e então o QR Code é gerado e exibido nesta página. Seu pedido não é salvo em nenhuma instância pela API do Google.
                 <p>Confira as últimas novidades da ferramenta <span style="text-decoration: underline; cursor: pointer;" onclick="abrirPopup('popup_log_novidades')">clicando aqui</span>!</p>
-                <p>Todo o código da página é de livre acesso e se encontra no repositório do GitHub de André Moura Santos, com licença MIT.</p>
+                <p>Todo o código da página é de livre acesso e se encontra no repositório do GitHub de André Moura Santos.</p>
                 <div class="container_btns_popup">
                     <button class="btn_popup btn_fechar_popup" onclick="fecharPopup('popup_sobre')">Fechar</button>
                     <button class="btn_popup btn_acao_popup" onclick="abrirLink('github.com/andremourasantos/apps','_blank', 250)">GitHub</button>
                 </div>
             </aside>
+    </article>
+
+    <!--NOVIDADES-->
+    <article class="popup" id="popup_log_novidades">
+        <img loading="lazy" src="/imagens/novidades_versao.png" alt="" height="128" width="128">
+        <aside>
+            <h2>Uau, você chegou cedo!</h2>
+            <p>Ainda não há novidades na ferramenta, pois essa é a primeira versão!</p>
+            <p>O que achou das novidades? Você pode conferir as mudanças mais técnicas diretamente no meu <span style="text-decoration: underline; cursor: pointer;" onclick="abrirPopup('popup_sobre')">repositório do GitHub</span>!</p>
+            <div class="container_btns_popup">
+                <button class="btn_popup btn_fechar_popup" onclick="fecharPopup('popup_log_novidades')">Fechar</button>
+            </div>
+        </aside>
     </article>
 <section>
     <script>

@@ -1,8 +1,5 @@
 @charset "UTF-8";
 
-/*↓ ÍCONES ↓*/
-#icone_Ajustes > i {transform: rotate(90deg);}
-
 /*↓ MAIN ↓*/
 main.duas_colunas > section:nth-child(1) > article {width: 70%; margin: auto;}
 main.duas_colunas > section:nth-child(1) > article h2 {margin-bottom: 10px;}

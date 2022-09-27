@@ -64,6 +64,7 @@ h1 {font-size: var(--tamanho_titulo_g); color: var(--cor_titulo_principal);}
 h2 {font-size: var(--tamanho_titulo_m); color: var(--cor_texto);}
 h3 {font-size: var(--tamanho_texto_m); color: var(--cor_texto);}
 p {font-size: var(--tamanho_texto_m); color: var(--cor_texto);}
+p > a {text-decoration: underline;}
 button {display: block; font-family: var(--texto_titulo); font-weight: bold; transition-duration: 250ms; border: none; border-radius: 0; padding: 5px 10px; cursor: pointer; font-size: var(--tamanho_texto_p); background-color: transparent;}
 button:active {transform: scale(0.9);}
 button:disabled {filter: grayscale(1); cursor: not-allowed;}
@@ -98,11 +99,11 @@ header > section:nth-of-type(2) {justify-content: end; align-items: center; flex
 
 /*↓ ÍCONES ↓*/
 i {color: var(--cor_icones);font-size: 40px; text-align: center;}
+#icone_Ajustes > i {transform: rotate(90deg);}
 
 /*↓ RODAPÉ ↓*/
 footer {height: fit-content; padding: 20px 40px; display: flex; align-items: center; justify-content: center; height: calc(10vh - 40px);}
 footer p, footer a {text-align: center; color: var(--cor_texto);}
-footer a {text-decoration: underline;}
 
 /*↓ POPUPS ↓*/
 #container_popup {display: flex; align-items: center; justify-content: center; position: fixed; inset: 0 0 0 0;  background-color: #00000030;}

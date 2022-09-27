@@ -21,7 +21,7 @@
 		"prefix": ["!apps", "!indexHTML"],
 		"body": [
 			"<!DOCTYPE html>",
-			"<html lang=\"pt-br'>\"",
+			"<html lang=\"pt-br>\"",
 			"<head>",
 				"\t<!-- SEO TAGS -->",
 				"\t<meta property=\"og:title\" content=\"$2\">",
