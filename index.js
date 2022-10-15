@@ -1,7 +1,7 @@
 //↓↓ CONFIGURAÇÕES
 let Ferramenta = {
     nome: 'Inicial',
-    info: 'versao:2.2;temaDaPagina:Claro;',
+    info: 'versao:2.3;temaDaPagina:Claro;',
     PUAU: 'salvarDados:0;sincronizarTema:0;habilitarCookies:0',
     temaDaPagina: null
 }
