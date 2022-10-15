@@ -16,6 +16,9 @@ Esse site agrupa todas as ferramentas criadas por mim, bem como recursos e outro
 - - - 
 
 ## Log
+- **Atualização 2.3**
+    - Nova ferramenta: Gerador de QR Code.
+
 - **Atualização 2.2**
     - Agora o código para importação dos pedaços está presente no essencial.js.
     - Alterada cor do botão principal para aumentar visibilidade.

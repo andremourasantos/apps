@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br>"
+<html lang="pt-br">
 <head>
     <!-- SEO TAGS -->
     <meta property="og:title" content="Gerador de QR Code">
@@ -27,9 +27,15 @@
 
     <!--SCRIPTS-->
     <script defer src="https://unpkg.com/phosphor-icons"></script>
+    <script defer src="script.js"></script>
     <script defer src="/essencial.js"></script>
 
     <title>Gerador de QR Code</title>
+
+    <style>
+        #opcoesFerramenta {display: flex; gap: 20px;}
+        #opcoesFerramentaSaida {display: flex; margin-bottom: 15px; justify-content: end; align-items: center;}
+    </style>
 </head>
 <body>
     <header>
@@ -50,12 +56,49 @@
     </header>
     <main class="duas_colunas">
         <!--ESQUERDA/CIMA-->
-        <section id="container_ferramenta">
+        <section id="container_ferramenta" class="principal">
             <div id="ferramenta">
+                <!--ENTRADAS-->
+                <section class="ferramenta_entrada" style="display: none;">
+                    <i class="ph-qr-code-fill"></i>
+                    <section>
+                        <div>
+                            <p>Qual a finalidade do QR Code?</p>
+                        </div>
+                        <input type="radio" name="" id="">
+                    </section>
+                </section>
+                <section class="ferramenta_entrada">
+                    <i class="ph-article-fill"></i>
+                    <section>
+                        <div>
+                            <p>Digite <span>a URL:</span></p>
+                        </div>
+                        <input type="text" id="requisicao" placeholder="https://..." maxlength="256">
+                    </section>
+                </section>
+
+                <!--SAÍDA-->
+                <section class="ferramenta_entrada" style="display: none;">
+                    <i class="ph-qr-code-fill"></i>
+                    <section>
+                        <div>
+                            <p>Seu QRCode está pronto!</p>
+                        </div>
+                        <img src="" id="QRCode" style="width: 100%;">
+                    </section>
+                </section>
+                <div id="opcoesFerramenta">
+                    <button id="criarQRCode" class="btn_acao_ferramenta">Criar QR Code</button>
+                    <div id="opcoesFerramentaSaida" style="display: none;">
+                        <button><i class="ph-download-simple-bold"></i></button>
+                        <button><i class="ph-share-network-fill"></i></button>
+                    </div>
+                </div>
             </div>
         </section>
         <!--DIREITA/BAIXO-->
-        <section id="informacoes">
+        <section id="informacoes" class="principal">
             <article id="container_informacoes">
                 <img loading="lazy" src="/imagens/questao.png" alt="Ícone de pergunta." height="96" width="96">
                 <h2>Como funciona?</h2>
@@ -97,15 +140,16 @@
             </div>
         </aside>
     </article>
-<section>
-    <script>
-        //↓↓ CONFIGURAÇÕES
-        let Ferramenta = {
-            nome: 'QRCode',
-            info: 'versao:1;temaDaPagina:Claro;',
-            PUAU: 'salvarDados:0;sincronizarTema:0;habilitarCookies:0',
-            temaDaPagina: null
-        }
-    </script>
+
+    <!--MINI NOTIFICAÇÕES-->
+    <!--ERRO-->
+    <article class="minipopup" id="popup_erro" style="display: none;">
+        <img src="/imagens/erro_popup.png" alt="" height="96" width="96">
+        <div>
+            <h3>Ops, algo está faltando!</h3>
+            <p>Confira as informações inseridas.</p>
+        </div>
+    </article>
+</section>
 </body>
 </html>
