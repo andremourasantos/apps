@@ -16,6 +16,13 @@ Esse site agrupa todas as ferramentas criadas por mim, bem como recursos e outro
 - - - 
 
 ## Log
+- **Atualização 2.4**
+    - Adição das ferramentas ao repositório, centralizando as alterações.
+    - Alteração dos nomes das ferramentas nos scripts e nas URLs. 
+    - Ativação da funcionalidade do PUAU de sincronização do tema da página dentre as ferramentas: Essa função estará em breve disponível para todas as ferramentas.
+    - Correção da exibição do ícone da ferramenta Link de WhatsApp no cartão da ferramenta de Gerador de QR Code.
+    - Diversas alterações nas ferramentas para uma melhor integração.
+
 - **Atualização 2.3**
     - Nova ferramenta: Gerador de QR Code.
 

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta name="theme-color" content="#FDFBEE"/>
+    
+    <!-- SEO TAGS -->
+    <meta property="og:title" content="Link de WhatsApp">
+    <meta property="og:description" content="Criar links de WhatsApp sem anúncios e totalmente de graça nunca foi tão fácil, acesse já e crie o seu!">
+    <meta name="description" content="Criar links de WhatsApp sem anúncios e totalmente de graça nunca foi tão fácil, acesse já e crie o seu!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="apps.andremourasantos.com/link-de-whatsapp">
+    <meta name="image" property="og:image" content="https://apps.andremourasantos.com/link-de-whatsapp/capa.png">
+
+    <!-- PRECONNECT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link rel="preconnect" href="https://unpkg.com/" crossorigin>
+
+    <!-- OUTRAS TAGS -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="André Moura Santos">
+    <meta name="application-name" content="Link de WhatsApp">
+
+    <!--LINKS-->
+    <link rel="stylesheet" href="/universal.css">
+    <link rel="shortcut icon" href="logo.png" type="image/png">
+
+    <!--SCRIPTS-->
+    <script defer src="https://unpkg.com/phosphor-icons"></script>
+    <script defer src="script.js"></script>
+    <script defer src="/essencial.js"></script>
+
+    <title>Link de WhatsApp</title>
+
+    <style>
+        #ferramenta > div {
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!--ESQUERDA/CIMA-->
+        <section>
+            <img id="logo-cabeçalho" src="logo.png" alt="Ícone de link." height="60" width="60">
+            <div>
+                <h1>Link de WhatsApp</h1>
+                <p>Crie links facilmente.</p>
+            </div>
+        </section>
+        
+        <!--DIREITA/BAIXO-->
+        <section id="icones_cabecalho">
+            <button class="btn_menu_icone" id="alteraTemaPagina"><i class="ph-moon-fill" title="Alterar tema da página"></i></button>
+            <button class="btn_menu_icone" id="icone_Ajustes"><i class="ph-sliders-fill" title="Painel de ajustes e acessibilidade"></i></button>
+            <button class="btn_menu_icone" id="icone_Info"><i class="ph-info-fill" title="Sobre o projeto"></i></button>
+        </section>
+    </header>
+
+    <main class="duas_colunas">
+        <!--ESQUERDA/CIMA-->
+        <section id="container_ferramenta" class="principal">
+            <article id="ferramenta">
+                <section id="ferramenta_entrada_telefone" class="ferramenta_entrada">
+                    <i class="ph-phone-fill"></i>
+                    <section>
+                        <p>Digite o telefone:</p>
+                        <input type="text" name="numero_telefone" id="numero_telefone" placeholder="(00) 91234-5678">
+                    </section>
+                </section>
+
+                <section id="ferramenta_entrada_mensagem" class="ferramenta_entrada">
+                    <i class="ph-chat-circle-fill"></i>
+                    <section>
+                        <p>Escreva sua mensagem (opcional):</p>
+                        <input type="text" name="mensagem" id="mensagem" placeholder="ex: Oi, gostaria de saber mais sobre..." autocomplete="off">
+                    </section>
+                </section>
+                
+                <section id="saida_link" class="ferramenta_entrada" style="display: none;">
+                    <i class="ph-link-bold"></i>
+                    <section>
+                        <p>Aqui está seu link:</p>
+                        <input type="text" name="link_gerado" id="link_gerado" readonly placeholder="Seu link será gerado aqui...">
+                    </section>
+                </section>
+
+                <div class="container_btns_popup">
+                    <button id="obter_link_btn" class="btn_popup btn_acao_popup">Obter link</button>
+                    <button id="copiar_link_btn" class="btn_menu_icone" style="display: none;" title="Copiar para área de transferência" onclick="copiarLink()"><i class="ph-clipboard-text-fill"></i></button>
+                </div>
+            </article>
+        </section>
+        <!--DIREITA/BAIXO-->
+        <section id="informacoes" class="principal">
+            <article id="container_informacoes">
+                <img loading="lazy" src="/imagens/questao.png" alt="Ícone de pergunta." height="96" width="96">
+                <h2>Como funciona?</h2>
+                <p>Para criar um link de WhatsApp basta que você digite o número de telefone, com o DDD, e, opcionalmente, você também pode adicionar uma mensagem, após isso, clique em "Obter link" e pronto!</p>
+                <p>Seu link será criado através da API oficial do WhatsApp e não contará com nenhum tipo de propaganda ou link suspeito.</p>
+                <p>O número de telefone e mensagem inseridas ficam salvos no seu navegador, localmente, para facilitar o uso da ferramenta.
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>Desenvolvido por <a href="https://andremourasantos.com" target="_blank" rel="next">André Moura Santos</a>. Ícones de <a href="https://phosphoricons.com/" target="_blank" rel="noopener noreferrer">Phospor Icons</a> e <a href="https://www.flaticon.com/authors/kawaii/flat" target="_blank" rel="noopener noreferrer">Flaticon</a>. Feito no 🇧🇷 Brasil.</p>
+    </footer>
+
+    <!--POPUPS-->
+    <section style="display: none;" id="container_popup">
+        <!--SOBRE O PROJETO-->
+        <article class="popup" id="popup_sobre" style="display: none;">
+            <img loading="lazy" src="/imagens/sobre_popup.png" alt="" height="128" width="128">
+            <h2>Sobre o projeto</h2>
+            <p>O objetivo desse projeto é proporcionar uma ferramenta útil e de livre acesso para criar links de WhatsApp sem propaganda, com foco exclusivo no Brasil.</p>
+            <p>Confira as últimas novidades da ferramenta <span onclick="abrirPopup('popup_log_novidades')" style="text-decoration: underline; cursor: pointer;">clicando aqui</span>.</p>
+            <p>Todo o código da página é de livre acesso e se encontra no repositório do GitHub de André Moura Santos, com licença MIT.</p>
+            <div class="container_btns_popup">
+                <button class="btn_popup btn_fechar_popup" id="btn_fechar_popup_info" onclick="fecharPopup('popup_sobre')">Fechar</button>
+                <button class="btn_popup btn_acao_popup" id="link_github_popup" onclick="(abrirLink(`github.com/andremourasantos/apps`,125))">GitHub</button>
+            </div>
+        </article>
+
+        <!--LOG-->
+        <article class="popup" style="display: none;" id="popup_log_novidades">
+            <img loading="lazy" src="/imagens/novidades_versao.png" alt="" height="128" width="128">
+            <h2>Tem novidade desde a sua última visita!</h2>
+            <p><strong>Conheça o PUAU:</strong> O novo <span style="text-decoration: underline; cursor: pointer;" onclick="abrirPopup('popup_puau')"><em>Painel Universal de Ajustes do Usuário</em></span> está disponvível agora nesta página! Com ele você pode salvar suas preferências de uso e muito mais.</p>
+            <p><strong>Melhorias de leitura:</strong> Agora o número de telefone digitado é formatado de maneira a facilitar a sua leitura.</p>
+            <p><strong>Melhorias na usabilidade:</strong> A ferramenta adaptará a exibição das entradas, proporcionando uma experiência de uso mais direta.</p>
+            <p><strong>Tema da página sincronizado:</strong> Agora, o tema que você escolher para esta página será sincronizado com todas as outras ferramentas que suportam essa função.</p>
+            <p>O que achou das novidades? Você pode conferir as mudanças mais técnicas diretamente no meu <span style="text-decoration: underline; cursor: pointer;" onclick="abrirPopup('popup_sobre')">repositório do GitHub</span>!</p>
+            <div class="container_btns">
+                <button class="btn_popup btn_fechar_popup" id="btn_fechar_popup_log_novidades" onclick="fecharPopup('popup_log_novidades')">Fechar</button>
+            </div>
+        </article>
+
+        <!--MINI NOTIFICAÇÕES-->
+        <!--BOAS-VINDAS (NÃO UTILIZADO)-->
+        <article class="minipopup" style="display: none;" id="popup_BoasVindas">
+            <img src="logo.png" alt="" height="96" width="96">
+            <div>
+                <h3>Boas-vindas!</h3>
+                <p>Você está no lugar certo &#x1F609;</p>
+            </div>
+        </article>
+        
+        <!--SUCESSO-->
+        <article class="minipopup" style="display: none;" id="popup_noti_link_sucesso">
+            <img loading="lazy" src="/imagens/sucesso_popup.png" alt="" height="96" width="96">
+            <div>
+                <h3>Link criado com sucesso</h3>
+            </div>
+        </article>
+
+        <!--ERRO-->
+        <article class="minipopup" style="display: none;" id="popup_noti_erro">
+            <img loading="lazy" src="/imagens/erro_popup.png" alt="" height="96" width="96">
+            <div>
+                <h3>Ops, algo deu errado...</h3>
+                <p>Por favor, recarregue a página.</p>
+            </div>
+        </article>
+    </section>
+</body>
+</html>

@@ -1,0 +1,42 @@
+/*↓ ÍCONES ↓*/
+#icones_cabecalho > button:nth-child(2) i {transform: rotate(90deg);}
+
+/*↓ CONTEÚDO ↓*/
+    /*↓ FERRAMENTA ↓*/
+    /*CONTAINER*/
+    #ferramenta {background-color: var(--cor_plano_de_fundo_3); max-width: 60%; width: fit-content; margin: auto; border-radius: var(--arredondamento_borda); padding: 10px 30px;}
+
+    /*ENTRADA 1*/
+    #entrada_1 {display: flex; margin: 20px auto; background-color: var(--cor_plano_de_fundo); border: 2px solid var(--cor_borda_principal); border-radius: var(--arredondamento_borda_interno); padding: 20px; gap: 20px;}
+    #entrada_1 p, #tamanho_txt > option {font-weight: 500;}
+
+        /*CONTAINER*/
+        #entrada_1 > div > div {display: flex; flex-wrap: wrap; gap: 18px;}
+        #entrada_1 > div > p {margin-bottom: 10px;}
+        #entrada_1 .entrada_ferramenta {padding: 8px 16px; border-radius: var(--arredondamento_borda_interno); border: 2px solid var(--cor_borda_secundaria); background-color: var(--cor_plano_de_fundo); color: var(--cor_texto); font-weight: 500; text-align: center;}
+        #tamanho_txt {flex-grow: 1;}
+    
+        /*ENTRADA: QUANTIDADE DE TEXTO*/
+        #entrada_quantidade_txt {display: flex; align-items: center; justify-content: space-evenly;}
+        button.icone_aux_entrada {padding: 0; margin-top: 3px;}
+        .icone_aux_entrada > i {font-size: var(--tamanho_texto_p); color: var(--cor_borda_secundaria)}
+        #quantidade_txt {background-color: var(--cor_plano_de_fundo); border: none; text-align: center; font-size: var(--tamanho_texto_m); color: var(--cor_texto); font-weight: 500;}
+
+    /*AÇÃO*/
+    #gerar_lorem {padding: 10px 20px; font-size: var(--tamanho_texto_g); margin: 0 auto 20px auto;}
+
+    /*↓ SAÍDA ↓*/
+    #saida {margin: auto;}
+    #saida > * {margin: auto; display: block;}
+    #saida_txt {margin: auto; background-color: var(--cor_plano_de_fundo); border: 2px solid var(--cor_borda_secundaria); border-radius: var(--arredondamento_borda_interno); padding: 10px; width: calc(100% - 20px); color: var(--cor_texto);}
+    #copiar_saida_txt {margin: 0 0 0 auto; position: relative; right: 10px; bottom: 40px;}
+
+/*↓ RESPONSIVIDADE ↓*/
+@media screen and (max-width: 768px){
+    #ferramenta {max-width: fit-content;}
+}
+
+@media screen and (max-width: 425px){
+    #entrada_1 > div > div > * {flex-grow: 1;}
+    #entrada_1 .entrada_ferramenta {padding: 13px 16px; flex-grow: 1;}
+}

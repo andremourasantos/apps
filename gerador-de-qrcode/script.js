@@ -5,10 +5,9 @@ window.addEventListener('load', ()=>{
 
 //↓↓ CONFIGURAÇÕES
 let Ferramenta = {
-    nome: 'QRCode',
-    info: 'versao:1;temaDaPagina:Claro;',
-    PUAU: 'salvarDados:0;sincronizarTema:0;habilitarCookies:0',
-    temaDaPagina: null
+    nome: 'gerador-de-qrcode',
+    info: 'versao:1.1;temaDaPagina:Claro;',
+    PUAU: 'salvarDados:0;sincronizarTema:2;habilitarCookies:0',
 }
 let QRCode = {
     url: ()=>{return QRCode.api + QRCode.requisicao},

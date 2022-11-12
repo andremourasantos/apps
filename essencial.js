@@ -1,10 +1,13 @@
 //↓↓ SCRIPTS PRIMORDIAIS
 window.addEventListener('DOMContentLoaded', async () => {
     //CONFERIR ARMAZENAMENTO LOCAL
-    if(localStorage.getItem(`Info${Ferramenta.nome}`) == null){localStorage.setItem(`Info${Ferramenta.nome}`, Ferramenta.info)}
+    if(localStorage.getItem(`info${Ferramenta.nome}`) == null){}else{localStorage.clear()}
+    if(localStorage.getItem(`info_${Ferramenta.nome}`) == null){localStorage.setItem(`info_${Ferramenta.nome}`, Ferramenta.info)}
 
     /*REFERÊNCIA DE TEMA*/
-    if(pegarDadosLocais('temaDaPagina') != null){alterarTema(0)}
+    if(Number(conferirPUAU('sincronizarTema')) >=2){
+        if(localStorage.getItem('temaDaPagina') != null){pegarDadosLocais('temaDaPagina', localStorage.getItem('temaDaPagina')); alterarTema(0)}
+    } else{if(pegarDadosLocais('temaDaPagina') != null){alterarTema(0)}}
 
     //CARREGAR ARQUIVOS
     const rodape = document.querySelector('footer')
@@ -12,7 +15,9 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     importarRodape = async () => {
         try {
-            const res = await fetch('https://apps.andremourasantos.com/pedaco/footer.html');
+            const res = await fetch('/pedaco/footer.html');
+            if(res.status != 200){throw new Error(res.status)}
+            rodape.innerHTML = (await res.text()).toString()
         } catch (erro) {
             console.log(erro)
         }
@@ -20,9 +25,12 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     importarPUAU = async () => {
         try {
-            const res = await fetch('https://apps.andremourasantos.com/pedaco/puau.html');
+            const res = await fetch('/pedaco/puau.html');
+            if(res.status != 200){throw new Error(res.status)}
             popups.innerHTML += (await res.text()).toString();autoAjustePUAU();
         } catch (erro) {
+            console.log(erro)
+
             //>>TROCAR PARA FETCH POR URL NA VERSÃO FINAL.
             const resErro = await fetch('/pedaco/erro_fetch.html')
             popups.innerHTML += (await resErro.text()).toString()
@@ -42,8 +50,8 @@ window.addEventListener('load', ()=>{
         pegarDadosLocais('versao', pegarDadosFerramenta('versao'))
 
         //ATUALIZAR O PUAU
-        if(localStorage.getItem(`puau${Ferramenta.nome}`) != null){
-            const antigoPUAU = localStorage.getItem(`puau${Ferramenta.nome}`).split(';').map(item => {return item.split(':')});
+        if(localStorage.getItem(`puau_${Ferramenta.nome}`) != null){
+            const antigoPUAU = localStorage.getItem(`puau_${Ferramenta.nome}`).split(';').map(item => {return item.split(':')});
 
             const novoPUAU = Ferramenta.PUAU.split(';').map(item => {return item.split(':')});
 
@@ -54,7 +62,7 @@ window.addEventListener('load', ()=>{
                 }
                 i++;
             });
-            localStorage.setItem(`puau${Ferramenta.nome}`, novoPUAU.join(';').replaceAll(',', ':'))
+            localStorage.setItem(`puau_${Ferramenta.nome}`, novoPUAU.join(';').replaceAll(',', ':'))
         } else {}
     }
 })
@@ -75,15 +83,15 @@ function autoAjustePUAU(){
 function conferirPUAU(funcao, status=null) {
     let PUAU = ''
 
-    if(localStorage.getItem(`puau${Ferramenta.nome}`) != null && localStorage.getItem(`puau${Ferramenta.nome}`).length == Ferramenta.PUAU.length
+    if(localStorage.getItem(`puau_${Ferramenta.nome}`) != null && localStorage.getItem(`puau_${Ferramenta.nome}`).length == Ferramenta.PUAU.length
     ) {
-        PUAU = localStorage.getItem(`puau${Ferramenta.nome}`).split(';').map(item => {return item.split(':')})
+        PUAU = localStorage.getItem(`puau_${Ferramenta.nome}`).split(';').map(item => {return item.split(':')})
     } else {
         PUAU = Ferramenta.PUAU.split(';').map(item => {return item.split(':')})
     }
 
     if(status != null){
-        for(i=0;i<PUAU.length;i++){if(PUAU[i][0] == funcao){PUAU[i][1] = (status == true) ? 2 : 1; return localStorage.setItem(`puau${Ferramenta.nome}`, PUAU.join(';').replaceAll(',',':'))}}
+        for(i=0;i<PUAU.length;i++){if(PUAU[i][0] == funcao){PUAU[i][1] = (status == true) ? 2 : 1; return localStorage.setItem(`puau_${Ferramenta.nome}`, PUAU.join(';').replaceAll(',',':'))}}
     }
     else {for(i=0;i<PUAU.length;i++){if(PUAU[i][0] == funcao){return PUAU[i][1]}}}
 
@@ -92,26 +100,30 @@ function conferirPUAU(funcao, status=null) {
 
 //↓↓ ESTILO DA PÁGINA
 function alterarTema(interacao=0){
-    let icone = document.querySelector("#alteraTemaPagina > i")    
+    let icone = document.querySelector("#alteraTemaPagina > i")
 
     if(interacao===0){
         switch (pegarDadosLocais('temaDaPagina')) {
             case 'Escuro':
                 document.body.classList.add('modo_escuro'); icone.className = 'ph-sun-fill'; icone.style.transform = 'scaleX(1)';
+                if(Number(conferirPUAU('sincronizarTema')) >=2){localStorage.setItem('temaDaPagina', 'Escuro')}
                 break;
         
             default:
                 document.body.classList.remove('modo_escuro'); icone.className = 'ph-moon-fill'; icone.style.transform = 'scaleX(-1)';
+                if(Number(conferirPUAU('sincronizarTema')) >=2){localStorage.setItem('temaDaPagina', 'Claro')}
                 break;
         }
     } else {
         switch (pegarDadosLocais('temaDaPagina')) {
             case 'Escuro':
                 document.body.classList.remove('modo_escuro'); pegarDadosLocais('temaDaPagina', 'Claro'); icone.className = 'ph-moon-fill'; icone.style.transform = 'scaleX(-1)';
+                if(Number(conferirPUAU('sincronizarTema')) >=2){localStorage.setItem('temaDaPagina', 'Claro')}
                 break;
         
             default:
                 document.body.classList.add('modo_escuro'); pegarDadosLocais('temaDaPagina', 'Escuro'); icone.className = 'ph-sun-fill'; icone.style.transform = 'scaleX(1)';
+                if(Number(conferirPUAU('sincronizarTema')) >=2){localStorage.setItem('temaDaPagina', 'Escuro')}
                 break;
         }
     }
@@ -187,10 +199,10 @@ function pegarDadosFerramenta(item) {
 
 //↓↓ PEGAR E ALTERAR DADOS LOCAIS
 function pegarDadosLocais(item, valor=null) {
-    const info = localStorage.getItem(`Info${Ferramenta.nome}`).split(';').map(item => {return item.split(':')})
+    const info = localStorage.getItem(`info_${Ferramenta.nome}`).split(';').map(item => {return item.split(':')})
 
     if(valor!=null) {
-        for(i=0;i<info.length;i++){if(info[i][0] == item){info[i][1] = valor; Ferramenta.info = info.join(';').replaceAll(',',':'); return window.localStorage.setItem(`Info${Ferramenta.nome}`, Ferramenta.info)}}
+        for(i=0;i<info.length;i++){if(info[i][0] == item){info[i][1] = valor; Ferramenta.info = info.join(';').replaceAll(',',':'); return window.localStorage.setItem(`info_${Ferramenta.nome}`, Ferramenta.info)}}
     } else {
         for(i=0;i<info.length;i++){if(info[i][0] == item){return info[i][1]}}
     }
@@ -198,4 +210,4 @@ function pegarDadosLocais(item, valor=null) {
 }
 
 //↓↓ ABRIR LINK
-function abrirLink(link,alvo='_blank',delay=0){setTimeout(()=>{window.open(`https://${link}`, `${alvo}`)},delay)}
+function abrirLink(link,delay=0,alvo='_blank'){setTimeout(()=>{window.open(`https://${link}`, `${alvo}`)},delay)}

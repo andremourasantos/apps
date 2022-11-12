@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- SEO TAGS -->
+    <meta property="og:title" content="Gerador de Lorem Ipsum">
+    <meta property="og:description" content="Crie textos para utilizar em protótipos, designs ou projetos pessoais para simular conteúdos reais.">
+    <meta name="description" content="Crie textos para utilizar em protótipos, designs ou projetos pessoais para simular conteúdos reais.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="apps.andremourasantos.com/gerador-de-lorem-ipsum">
+    <meta name="image" property="og:image" content="https://apps.andremourasantos.com/gerador-de-lorem-ipsum/capa.png">
+
+    <!-- OUTRAS TAGS -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="André Moura Santos">
+    <meta name="application-name" content="Gerador de Lorem Ipsum">
+    <meta name="theme-color" content="#FDFBEE"/>
+
+    <!-- PRECONNECT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link rel="preconnect" href="https://unpkg.com/" crossorigin>
+
+    <!-- LINKS -->
+    <link rel="stylesheet" href="/universal.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="shortcut icon" href="logo.png" type="image/png">
+
+    <!--SCRIPTS-->
+    <script defer src="https://unpkg.com/phosphor-icons"></script>
+    <script defer src="index.js"></script>
+    <script defer src="/essencial.js"></script>
+
+    <title>Gerador de Lorem Ipsum</title>
+</head>
+<body>
+    <header>
+        <!--ESQUERDA/CIMA-->
+        <section>
+            <img id="logo_cabeçalho" src="logo.png" alt="Logo do Gerador de Lorem Ipsum." width="60" height="60">
+            <div>
+                <h1>Gerador de Lorem Ipsum</h1>
+                <p>Textos genéricos para seus protótipos.</p>
+            </div>
+        </section>
+        
+        <!--DIREITA/BAIXO-->
+        <section id="icones_cabecalho">
+            <button class="btn_menu_icone" id="alteraTemaPagina"><i class="ph-moon-fill" title="Alterar tema da página"></i></button>
+            <button class="btn_menu_icone" id="icone_Ajustes"><i class="ph-sliders-fill" title="Painel de ajustes e acessibilidade"></i></button>
+            <button class="btn_menu_icone" id="icone_Info"><i class="ph-info-fill" title="Sobre o projeto"></i></button>
+        </section>
+    </header>
+    <main class="duas_colunas">
+        <!--ESQUERDA/CIMA-->
+        <section id="container_ferramenta" class="principal">
+            <div id="ferramenta">
+                <div id="entrada_1">
+                    <i class="ph-article-fill"></i>
+                    <div>
+                        <p>Quantidade e tamanho do texto</p>
+                        <div>
+                            <div id="entrada_quantidade_txt" class="entrada_ferramenta">
+                                <button class="icone_aux_entrada" id="removerQuantidadeTxt"><i class="ph-minus-bold" title="Diminuir quantidade em um"></i></button>
+
+                                <input type="number" name="quantidade_txt" id="quantidade_txt" value="1" max="20" min="1" step="1">
+
+                                <button class="icone_aux_entrada" id="adicionarQuantidadeTxt"><i class="ph-plus-bold" title="Aumentar quantidade em um"></i></button>
+                            </div>
+                            <select name="tamanho_txt" id="tamanho_txt" class="entrada_ferramenta">
+                                <option value="palavra">Palavra</option>
+                                <option value="frase">Frase</option>
+                                <option value="paragrafo">Parágrafo</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div id="saida">
+                    <textarea name="saida_txt" id="saida_txt" cols="20" rows="8" autocomplete="off" autocorrect="off" placeholder="Digite o número de itens desejados e o tipo para gerar o texto." style="resize: none;"></textarea>
+                    <button id="copiar_saida_txt" class="btn_acao">Copiar</button>
+                </div>
+                <button id="gerar_lorem" class="btn_acao_ferramenta">Gerar texto</button>
+            </div>
+        </section>
+
+        <!--DIREITA/BAIXO-->
+        <section id="informacoes" class="principal">
+            <article id="container_informacoes">
+                <img loading="lazy" src="https://apps.andremourasantos.com/imagens/questao.png" alt="Ícone de pergunta." height="96" width="96">
+                <h2>Como funciona?</h2>
+                <p>Para criar um texto Lorem Ipsum para o seu projeto, basta selecionar o tipo de texto desejado (escolhendo entre apenas palavras, frases ou parágrafos inteiros) e, em seguida, digitar a quantidade de itens. Você pode copiar o resultado clicando no botão "Copiar".</p>
+                <p>Muito comumente utilizados em protótipos e designs para popular áreas de conteúdos, o texto Lorem Ipsum vem de uma obra de Cícero, 45 AC, intitulada "De finibus bonorum et malorum" (Sobre os fins do bem e do mal), que fala sobre ética.</p>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <p>Desenvolvido por <a href="http://andremourasantos.com" target="_blank" rel="next">André Moura Santos</a>. Ícones de <a href="https://phosphoricons.com/" target="_blank" rel="noopener noreferrer">Phospor Icons</a> e <a href="https://www.flaticon.com/authors/kawaii/flat" target="_blank" rel="noopener noreferrer">Flaticon</a>. Feito no &#x1F1E7;&#x1F1F7; Brasil.</p>
+    </footer>
+
+    <!--POPUPS-->
+    <section style="display: none;" id="container_popup">
+        <!--SOBRE-->
+        <article class="popup" id="popup_sobre" style="display: none;">
+            <img loading="lazy" src="https://apps.andremourasantos.com/imagens/sobre_popup.png" alt="" height="128" width="128">
+            <aside>
+                <h2>Sobre o projeto</h2>
+                <p>O objetivo deste projeto é aprofundar meus conhecimentos com a criação em série de páginas similares, mas com funcionalidades diferentes.</p>
+                <p>Confira as últimas novidades da ferramenta <span style="text-decoration: underline; cursor: pointer;" onclick="abrirPopup('popup_log_novidades')">clicando aqui</span> ou pressione Alt + L!</p>
+                <p>Todo o código da página é de livre acesso e se encontra no repositório do GitHub de André Moura Santos, com licença MIT.</p>
+                <div class="container_btns_popup">
+                    <button class="btn_popup btn_fechar_popup" onclick="fecharPopup('popup_sobre')">Fechar</button>
+                    <button class="btn_popup btn_acao_popup" id="link_github_popup" onclick="(abrirLink(`github.com/andremourasantos/apps`, 125))">GitHub</button>
+                </div>
+            </aside>
+        </article>
+
+        <!--LOG-->
+        <article class="popup" id="popup_log_novidades" style="display: none;">
+            <img loading="lazy" src="https://apps.andremourasantos.com/imagens/novidades_versao.png" alt="" height="128" width="128">
+            <aside>
+                <h2>Tem novidade desde a sua última visita!</h2>
+                <p><strong>Conheça o PUAU:</strong> O novo <span style="text-decoration: underline; cursor: pointer;" onclick="abrirPopup('popup_puau')"><em>Painel Universal de Ajustes do Usuário</em></span> está disponvível agora nesta página! Com ele você pode salvar suas preferências de uso e muito mais.</p>
+                <p><strong>Tema da página sincronizado:</strong> Agora, o tema que você escolher para esta página será sincronizado com todas as outras ferramentas que suportam essa função.</p>
+                <p>O que achou das novidades? Você pode conferir as mudanças mais técnicas diretamente no meu <span style="text-decoration: underline; cursor: pointer;" onclick="abrirPopup('popup_sobre')">repositório do GitHub</span>!</p>
+                <div class="container_btns_popup">
+                    <button class="btn_popup btn_fechar_popup" onclick="fecharPopup('popup_log_novidades')">Fechar</button>
+                </div>
+            </aside>
+        </article>
+
+        <!--MINI NOTIFICAÇÕES-->
+            <!--BOAS-VINDAS!-->
+            <article class="minipopup" id="popup_BoasVindas" style="display: none;">
+                <img src="logo.png" alt="" height="96" width="96">
+                <div>
+                    <h3>Boas-vindas!</h3>
+                    <p>Vamos começar?</p>
+                </div>
+            </article>
+    </section>
+</body>
+</html>
