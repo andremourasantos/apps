@@ -17,7 +17,6 @@ window.addEventListener('DOMContentLoaded', async () => {
         //CONFERE TEMA DO DISPOSITIVO E APLICA
         window.matchMedia("(prefers-color-scheme: dark)").matches ? pegarDadosLocais('temaDaPagina', 'Escuro') : pegarDadosLocais('temaDaPagina', 'Claro'); alterarTema(0);
    } else {
-        console.log('temaDoDispositivo desativado')
         //CONFERE TEMA COMPARTILHADO E APLICA
         if (Number(conferirPUAU('sincronizarTema')) >=2) {
             if(localStorage.getItem('temaDaPagina') != null){pegarDadosLocais('temaDaPagina', localStorage.getItem('temaDaPagina')); alterarTema(0)}; 
@@ -26,6 +25,7 @@ window.addEventListener('DOMContentLoaded', async () => {
             if(pegarDadosLocais('temaDaPagina') != null){alterarTema(0);}
         }
    }
+})
 
 //↓↓ EVENTOS PÓS CARRAGAMENTO
 window.addEventListener('load', async ()=>{
@@ -135,14 +135,16 @@ function atualizarPUAU(){
 
         Graças ao descarte, quando a ferramenta recebe uma nova funcionalidade, antes não suportada (cód. '0' ou '3'), ela será atualizada e a nova funcionalidade poderá funcionar. Antes, o script leria o antigo PUAU e definiria que, mesmo que a agora a ferramenta suporte essa opção, como no passado ela não era suportada, ela continuaria não sendo suportada, devido à prioridade do antigo PUAU para com o novo.
         */
-        novoPUAU.forEach(item => {
-            if(item[0] === antigoPUAU[i][0]){
-                if(item[1] != '0' && item[1] != '3' && antigoPUAU[i][1] != '0' && antigoPUAU[i][1] != '3'){item[1] = antigoPUAU[i][1]}
-            }; i++;
-        });            
+        antigoPUAU.forEach(item => {
+            for(index=0;index<novoPUAU.length;index++){
+                if(item[0] == novoPUAU[index][0]){
+                    if(item[1] != '0' && item[1] != '3' && novoPUAU[index][1] != '0' && novoPUAU[index][1] != '3'){novoPUAU[index][1] = item[1];} else {}
+                    break;
+                }}
+        })
 
         localStorage.setItem(`puau_${Ferramenta.nome}`, novoPUAU.join(';').replaceAll(',', ':'))
-    } else {}
+    }
 }
 
 function autoAjustePUAU(){
