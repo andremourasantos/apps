@@ -5,9 +5,27 @@ window.addEventListener('DOMContentLoaded', async () => {
     if(localStorage.getItem(`info_${Ferramenta.nome}`) == null){localStorage.setItem(`info_${Ferramenta.nome}`, Ferramenta.info)}
 
     /*REFERÊNCIA DE TEMA*/
-    if(Number(conferirPUAU('sincronizarTema')) >=2){
-        if(localStorage.getItem('temaDaPagina') != null){pegarDadosLocais('temaDaPagina', localStorage.getItem('temaDaPagina')); alterarTema(0)}
-    } else{if(pegarDadosLocais('temaDaPagina') != null){alterarTema(0)}}
+    /*
+        Hierarquia do sistema: temaDoDispositivo > sincronizarTema
+        
+        Caso a opção de 'temaDoDispositivo' esteja ativada, ela sobrepõe as configurações da opção de 'sincronizarTema', mas sem alterar o armazenamento local dela 'localStorage.setItem('temaDaPagina')'.
+
+        Deve ser possível obter dois casos distintos de uso: Uma página com a opção 'temaDoDispositivo' habilitada e no modo 'Escuro', por exemplo, enquanto outra página que não tem essa opção habilitada está com no modo 'Claro' e 'sincronizarTema' também está definido para o modo 'Claro'.
+    */
+
+   if (Number(conferirPUAU('temaDoDispositivo')) >=2) {
+        //CONFERE TEMA DO DISPOSITIVO E APLICA
+        window.matchMedia("(prefers-color-scheme: dark)").matches ? pegarDadosLocais('temaDaPagina', 'Escuro') : pegarDadosLocais('temaDaPagina', 'Claro'); alterarTema(0);
+   } else {
+        console.log('temaDoDispositivo desativado')
+        //CONFERE TEMA COMPARTILHADO E APLICA
+        if (Number(conferirPUAU('sincronizarTema')) >=2) {
+            if(localStorage.getItem('temaDaPagina') != null){pegarDadosLocais('temaDaPagina', localStorage.getItem('temaDaPagina')); alterarTema(0)}; 
+        } else {
+            //CONFERE TEMA DA PÁGINA EM QUESTÃO E APLICA
+            if(pegarDadosLocais('temaDaPagina') != null){alterarTema(0);}
+        }
+   }
 
     //CARREGAR ARQUIVOS
     const rodape = document.querySelector('footer')
@@ -106,24 +124,32 @@ function alterarTema(interacao=0){
         switch (pegarDadosLocais('temaDaPagina')) {
             case 'Escuro':
                 document.body.classList.add('modo_escuro'); icone.className = 'ph-sun-fill'; icone.style.transform = 'scaleX(1)';
-                if(Number(conferirPUAU('sincronizarTema')) >=2){localStorage.setItem('temaDaPagina', 'Escuro')}
+
+                //CONFERE HIERARQUIA DE TEMA DA PÁGINA
+                Number(conferirPUAU('temaDoDispositivo')) >=2 ? '' : Number(conferirPUAU('sincronizarTema')) >=2 ? localStorage.setItem('temaDaPagina', 'Escuro') : ''
                 break;
         
             default:
                 document.body.classList.remove('modo_escuro'); icone.className = 'ph-moon-fill'; icone.style.transform = 'scaleX(-1)';
-                if(Number(conferirPUAU('sincronizarTema')) >=2){localStorage.setItem('temaDaPagina', 'Claro')}
+
+                //CONFERE HIERARQUIA DE TEMA DA PÁGINA
+                Number(conferirPUAU('temaDoDispositivo')) >=2 ? '' : Number(conferirPUAU('sincronizarTema')) >=2 ? localStorage.setItem('temaDaPagina', 'Claro') : ''
                 break;
         }
     } else {
         switch (pegarDadosLocais('temaDaPagina')) {
             case 'Escuro':
                 document.body.classList.remove('modo_escuro'); pegarDadosLocais('temaDaPagina', 'Claro'); icone.className = 'ph-moon-fill'; icone.style.transform = 'scaleX(-1)';
-                if(Number(conferirPUAU('sincronizarTema')) >=2){localStorage.setItem('temaDaPagina', 'Claro')}
+
+                //CONFERE HIERARQUIA DE TEMA DA PÁGINA
+                Number(conferirPUAU('temaDoDispositivo')) >=2 ? '' : Number(conferirPUAU('sincronizarTema')) >=2 ? localStorage.setItem('temaDaPagina', 'Claro') : ''
                 break;
         
             default:
                 document.body.classList.add('modo_escuro'); pegarDadosLocais('temaDaPagina', 'Escuro'); icone.className = 'ph-sun-fill'; icone.style.transform = 'scaleX(1)';
-                if(Number(conferirPUAU('sincronizarTema')) >=2){localStorage.setItem('temaDaPagina', 'Escuro')}
+
+                //CONFERE HIERARQUIA DE TEMA DA PÁGINA
+                Number(conferirPUAU('temaDoDispositivo')) >=2 ? '' : Number(conferirPUAU('sincronizarTema')) >=2 ? localStorage.setItem('temaDaPagina', 'Escuro') : ''
                 break;
         }
     }

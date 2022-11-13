@@ -2,7 +2,7 @@
 let Ferramenta = {
     nome: 'gerador-de-lorem-ipsum',
     info: 'versao:1.2;temaDaPagina:Claro',
-    PUAU: 'salvarDados:0;sincronizarTema:2;habilitarCookies:0'
+    PUAU: 'salvarDados:0;sincronizarTema:2;temaDoDispositivo:2;habilitarCookies:0'
 }
 
 //↓↓ CONFIGURAÇÕES
