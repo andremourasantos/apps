@@ -1,6 +1,6 @@
 <!--PAINEL UNIVERSAL DE AJUSTES DO USUÁRIO-->
 <article class="popup" id="popup_puau" style="display: none;">
-    <img loading="lazy" src="https://apps.andremourasantos.com/imagens/ajustes.png" alt="" height="128" width="128">
+    <img loading="lazy" src="/imagens/ajustes.png" alt="" height="128" width="128">
     <aside>
         <h2>Ajustes</h2>
         <p>Aqui você poderá conferir ajustes e opções de acessibilidade para facilitar o seu uso da página. Todas as alterações são salvas automaticamente.</p>
@@ -36,7 +36,8 @@
             <article class="opcao_PUAU">
                 <div>
                     <h3>Habilitar Cookies</h3>
-                    <p>Informações anônimas sobre suas interações na página serão utilizadas para incrementar a ferramenta.</p>
+                    <p>Informações anônimas sobre suas interações na página serão coletadas.</p>
+                    <p style="text-decoration: underline; cursor: pointer;" onclick="importarPedacos('importarPopupErroFetch'); abrirPopup()">Saiba mais.</p>
                 </div>
                 <div>
                     <input type="checkbox" id="habilitarCookies" disabled>

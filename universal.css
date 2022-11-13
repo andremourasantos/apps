@@ -64,7 +64,7 @@ h1 {font-size: var(--tamanho_titulo_g); color: var(--cor_titulo_principal);}
 h2 {font-size: var(--tamanho_titulo_m); color: var(--cor_texto);}
 h3 {font-size: var(--tamanho_texto_m); color: var(--cor_texto);}
 p {font-size: var(--tamanho_texto_m); color: var(--cor_texto);}
-p > a {text-decoration: underline;}
+p > a {text-decoration: underline; color: var(--cor_texto);}
 button {display: block; font-family: var(--texto_titulo); font-weight: bold; transition-duration: 250ms; border: none; border-radius: 0; padding: 5px 10px; cursor: pointer; font-size: var(--tamanho_texto_p); background-color: transparent;}
 button:active {transform: scale(0.9);}
 button:disabled {filter: grayscale(1); cursor: not-allowed;}
