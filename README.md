@@ -16,6 +16,10 @@ Esse site agrupa todas as ferramentas criadas por mim, bem como recursos e outro
 - - - 
 
 ## Log
+- **Atualização 2.5.1**
+    - A opção do PUAU "Tema do dispositivo" foi alterada para cód. 1 em todas as páginas.
+    - Ajustes na disposição das opções do PUAU.
+
 - **Atualização 2.5**
     - Adicionada opção de acessibilidade com a fonte Atkinson Hyperlegible, disponível através do PUAU.
     - Agora é possível sincronizar o tema da página com o tema do seu dispositivo.

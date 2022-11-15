@@ -2,7 +2,7 @@
 let Ferramenta = {
     nome: 'link-de-whatsapp',
     info: 'versao:2.2;temaDaPagina:Claro;dadosSalvos:telefone==',
-    PUAU: 'acessibilidadeFonte:1;salvarDados:2;sincronizarTema:2;temaDoDispositivo:2;habilitarCookies:0'
+    PUAU: 'acessibilidadeFonte:1;salvarDados:2;sincronizarTema:2;temaDoDispositivo:1;habilitarCookies:0'
 }
 
 //↓↓ ACIONADORES
