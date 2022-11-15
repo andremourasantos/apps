@@ -9,7 +9,7 @@ body > main > section:nth-child(2) > img {display: block; margin-inline: auto; m
 /*↓ SEÇÃO DE FERRAMENTAS ↓*/
 #ferramentas {padding: 60px 0px;}
 #ferramentas * {text-align: center;}
-#fachada_de_ferramentas {width: min(80%); margin-inline: auto; display: flex; gap: 30px; justify-content: center; align-items: center; padding: 60px 0 0 0;}
+#fachada_de_ferramentas {width: min(80%); margin-inline: auto; display: flex; gap: 30px; justify-content: center; align-items: center; padding: 60px 0 0 0; flex-wrap: wrap;}
 
 .apresentacao_ferramenta {width: 200px; height: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 20px; cursor: pointer; border-radius: var(--arredondamento_borda); padding: 0px 20px; box-shadow: 0 0 6px #00000030;}
 
@@ -20,11 +20,11 @@ body > main > section:nth-child(2) > img {display: block; margin-inline: auto; m
 /*↓ RESPONSIVIDADE ↓*/
 @media screen and (max-width: 1024px) {
     main.duas_colunas > section:nth-child(1) {order: 2;}
+    
 }
 
 @media screen and (max-width: 600px) {
     main > section:nth-child(1) > article {text-align: center; width: 100%;}
-    #fachada_de_ferramentas {flex-direction: column;}
     .apresentacao_ferramenta {height: 365px;}
 }
  

@@ -16,6 +16,15 @@ Esse site agrupa todas as ferramentas criadas por mim, bem como recursos e outro
 - - - 
 
 ## Log
+- **Atualização 2.5**
+    - Adicionada opção de acessibilidade com a fonte Atkinson Hyperlegible, disponível através do PUAU.
+    - Agora é possível sincronizar o tema da página com o tema do seu dispositivo.
+    - Corrigida falha na página inicial em que os cartões das ferramentas não se adequava corretamente ao tamanho da tela.
+    - Corrigido problema que não permitia que o PUAU se auto-ajustasse com as novas funções após o usuário interagir com ele através do popup.
+    - Grande otimização na forma de importação dos pedaços (snippets) HTML.
+    - O código do PhosphorIcons foi removido do cabeçalho de todas as páginas, visando melhoria no desempenho de carregamento.
+    - Otimização no código de auto-ajuste do PUAU.
+
 - **Atualização 2.4**
     - Adição das ferramentas ao repositório, centralizando as alterações.
     - Alteração dos nomes das ferramentas nos scripts e nas URLs. 

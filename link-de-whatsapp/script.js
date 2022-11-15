@@ -1,9 +1,8 @@
 //↓↓ INFO DA FERRAMENTA
 let Ferramenta = {
     nome: 'link-de-whatsapp',
-    info: 'versao:2.1;temaDaPagina:Claro;dadosSalvos:telefone==',
-    PUAU: 'salvarDados:2;sincronizarTema:2;temaDoDispositivo:2;habilitarCookies:0',
-    temaDaPagina: null
+    info: 'versao:2.2;temaDaPagina:Claro;dadosSalvos:telefone==',
+    PUAU: 'acessibilidadeFonte:1;salvarDados:2;sincronizarTema:2;temaDoDispositivo:2;habilitarCookies:0'
 }
 
 //↓↓ ACIONADORES

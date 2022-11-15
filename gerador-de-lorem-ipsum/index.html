@@ -27,7 +27,6 @@
     <link rel="shortcut icon" href="logo.png" type="image/png">
 
     <!--SCRIPTS-->
-    <script defer src="https://unpkg.com/phosphor-icons"></script>
     <script defer src="index.js"></script>
     <script defer src="/essencial.js"></script>
 
@@ -119,9 +118,10 @@
             <img loading="lazy" src="https://apps.andremourasantos.com/imagens/novidades_versao.png" alt="" height="128" width="128">
             <aside>
                 <h2>Tem novidade desde a sua última visita!</h2>
-                <p><strong>Conheça o PUAU:</strong> O novo <span style="text-decoration: underline; cursor: pointer;" onclick="abrirPopup('popup_puau')"><em>Painel Universal de Ajustes do Usuário</em></span> está disponvível agora nesta página! Com ele você pode salvar suas preferências de uso e muito mais.</p>
+                <p><strong class="puau_acessibilidade"><i class="ph-person-simple-bold"></i>Acessibilidade:</strong> Você agora pode selecionar uma fonte para facilitar a leitura da tela no <span class="interacao" onclick="abrirPopup('popup_puau')">Painel Universal de Ajustes do Usuário</span>.</p>
+                <p><strong>Conheça o PUAU:</strong> O novo <span class="interacao" onclick="abrirPopup('popup_puau')"><em>Painel Universal de Ajustes do Usuário</em></span> está disponvível agora nesta página! Com ele você pode salvar suas preferências de uso e muito mais.</p>
                 <p><strong>Tema da página sincronizado:</strong> Agora, o tema que você escolher para esta página será sincronizado com todas as outras ferramentas que suportam essa função.</p>
-                <p>O que achou das novidades? Você pode conferir as mudanças mais técnicas diretamente no meu <span style="text-decoration: underline; cursor: pointer;" onclick="abrirPopup('popup_sobre')">repositório do GitHub</span>!</p>
+                <p>O que achou das novidades? Você pode conferir as mudanças mais técnicas diretamente no meu <span class="interacao" onclick="abrirPopup('popup_sobre')">repositório do GitHub</span>!</p>
                 <div class="container_btns_popup">
                     <button class="btn_popup btn_fechar_popup" onclick="fecharPopup('popup_log_novidades')">Fechar</button>
                 </div>

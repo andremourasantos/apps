@@ -38,9 +38,17 @@ window.addEventListener('load', async ()=>{
         pegarDadosLocais('versao', pegarDadosFerramenta('versao'))
     }
 
+    //ADICIONAR CÓDIGO DO PHOSPHORICONS
+    /*O código foi retirado do 'head' do HTML por motivos de desempenho de carregamento.*/
+    const scriptPhosphorIcons = () => {
+        let elemento = document.createElement('script')
+        elemento.setAttribute('src', 'https://unpkg.com/phosphor-icons')
+        document.body.appendChild(elemento)
+    }; scriptPhosphorIcons();
+
     //IMPORTA OS PEDAÇOS E EXECUTA TODOS OS CÓDIGOS REFERNTES AOS ELEMENTOS IMPORTADOS.
     await importarPedacos();
-    atualizarPUAU(); autoAjustePUAU();
+    atualizarPUAU(); autoAjustePUAU(); puauTrocarFonteParaSuperlegivel();
 })
 
 //↓↓ SCRIPTS DE IMPORTAÇÃO
@@ -153,6 +161,9 @@ function autoAjustePUAU(){
 
     //ACIONADORES
     document.querySelectorAll("#container_opcoes_PUAU > article.opcao_PUAU > div:nth-child(2) > input").forEach(opcao => document.querySelector(`#${opcao.id}`).addEventListener('click', ()=>{conferirPUAU(opcao.id, document.querySelector(`#${opcao.id}`).checked)}))
+
+    //ACIONADORES ESPECIAIS
+    document.querySelector('#acessibilidadeFonte').addEventListener('click', puauTrocarFonteParaSuperlegivel)
 }
 
 function conferirPUAU(funcao, status=null) {
@@ -172,6 +183,26 @@ function conferirPUAU(funcao, status=null) {
 
     return null;
 }
+
+    //FUNÇÕES EXTRAS E DE ACESSIBILIDADE
+    function puauTrocarFonteParaSuperlegivel() {
+        let cssRoot = document.querySelector(':root')
+        if(Number(conferirPUAU('acessibilidadeFonte'))>=2){
+            /*FONTES DISPONÍVEIS
+            As fontes utilizadas no projeto estão divididas entre '--texto_titulo', para todos os títulos, e '--texto_geral' para todos os parágrafos. Com a opção de acessibilidade, ambos títulos e parágrafos passarão a utilizar a mesma fonte, definida em '--texto_geral_acessibilidade'.
+
+            Atualmente, as fontes são:
+            --texto_titulo: 'Ubuntu', sans-serif
+            --texto_geral: 'Albert Sans', sans-serif
+            --texto_geral_acessibilidade: 'Atkinson Hyperlegible', monospace
+            */
+            cssRoot.style.setProperty('--texto_titulo', `'Atkinson Hyperlegible', monospace`)
+            cssRoot.style.setProperty('--texto_geral', `'Atkinson Hyperlegible', monospace`)
+        } else {
+            cssRoot.style.setProperty('--texto_titulo', `'Ubuntu', sans-serif`)
+            cssRoot.style.setProperty('--texto_geral', `'Albert Sans', sans-serif`)
+        }
+    }
 
 //↓↓ ESTILO DA PÁGINA
 function alterarTema(interacao=0){
@@ -292,7 +323,7 @@ function pegarDadosLocais(item, valor=null) {
     const info = localStorage.getItem(`info_${Ferramenta.nome}`).split(';').map(item => {return item.split(':')})
 
     if(valor!=null) {
-        for(i=0;i<info.length;i++){if(info[i][0] == item){info[i][1] = valor; Ferramenta.info = info.join(';').replaceAll(',',':'); return window.localStorage.setItem(`info_${Ferramenta.nome}`, Ferramenta.info)}}
+        for(i=0;i<info.length;i++){if(info[i][0] == item){info[i][1] = valor; return localStorage.setItem(`info_${Ferramenta.nome}`, info.join(';').replaceAll(',',':'))}}
     } else {
         for(i=0;i<info.length;i++){if(info[i][0] == item){return info[i][1]}}
     }
