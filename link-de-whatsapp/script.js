@@ -113,7 +113,7 @@ let LinkdeWhatsApp = {
         botao = document.querySelector('#copiar_link_btn')
         icone = document.querySelector('#copiar_link_btn > i')
         iconeCopiar = 'ph-clipboard-text-fill'
-        iconeVerificado = 'ph-check-fill'
+        iconeVerificado = 'ph-check-bold'
 
         navigator.clipboard.writeText(LinkdeWhatsApp.link)
         setTimeout(()=>{

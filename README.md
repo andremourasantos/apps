@@ -16,6 +16,12 @@ Esse site agrupa todas as ferramentas criadas por mim, bem como recursos e outro
 - - - 
 
 ## Log
+- **Atualização 2.5.2**
+    - **Gerador de Lorem Ipsum:**
+        - A ferramenta agora entrega resultados mais satisfatórios na geração de textos para Palavras, Frases e Parágrafos.
+        - Diversas otimizações de código.
+        - Remodelagem da página para destacar mais a ferramenta.
+
 - **Atualização 2.5.1**
     - A opção do PUAU "Tema do dispositivo" foi alterada para cód. 1 em todas as páginas.
     - Ajustes na disposição das opções do PUAU.

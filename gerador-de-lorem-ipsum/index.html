@@ -53,43 +53,31 @@
     <main class="duas_colunas">
         <!--ESQUERDA/CIMA-->
         <section id="container_ferramenta" class="principal">
-            <div id="ferramenta">
-                <div id="entrada_1">
-                    <i class="ph-article-fill"></i>
-                    <div>
-                        <p>Quantidade e tamanho do texto</p>
-                        <div>
-                            <div id="entrada_quantidade_txt" class="entrada_ferramenta">
-                                <button class="icone_aux_entrada" id="removerQuantidadeTxt"><i class="ph-minus-bold" title="Diminuir quantidade em um"></i></button>
-
-                                <input type="number" name="quantidade_txt" id="quantidade_txt" value="1" max="20" min="1" step="1">
-
-                                <button class="icone_aux_entrada" id="adicionarQuantidadeTxt"><i class="ph-plus-bold" title="Aumentar quantidade em um"></i></button>
+            <article id="ferramenta">
+                <section class="ferramenta_entrada">
+                    <i class="ph-textbox-fill"></i>
+                    <section>
+                        <p>Quantidade e tipo do texto:</p>
+                        <div id="entradas_tamanho_tipo">
+                            <div id="quantidadeTexto">
+                                <button><i id="removerQuantidadeTxt" class="ph-minus-bold" title="Remover uma unidade"></i></button>
+                                <input id="quantidade_txt" type="number" readonly value="1" step="1" min="1" max="25">
+                                <button><i id="adicionarQuantidadeTxt" class="ph-plus-bold" title="Adicionar uma unidade"></i></button>
                             </div>
-                            <select name="tamanho_txt" id="tamanho_txt" class="entrada_ferramenta">
+                            <select id="tamanho_txt">
                                 <option value="palavra">Palavra</option>
                                 <option value="frase">Frase</option>
                                 <option value="paragrafo">Parágrafo</option>
                             </select>
                         </div>
-                    </div>
+                    </section>
+                </section>
+                <textarea name="saida_txt" id="saida_txt" cols="20" rows="8" autocomplete="off" autocorrect="off" placeholder="Digite o número de itens desejados e o tipo para gerar o texto." style="resize: none;"></textarea>
+                <div class="container_btns_popup">
+                    <button id="gerar_lorem" class="btn_acao_ferramenta">Gerar texto</button>
+                    <button class="btn_menu_icone"><i id="copiar_txt" class="ph-clipboard-text-fill" title="Copiar para área de transferência"></i></button>
                 </div>
-                <div id="saida">
-                    <textarea name="saida_txt" id="saida_txt" cols="20" rows="8" autocomplete="off" autocorrect="off" placeholder="Digite o número de itens desejados e o tipo para gerar o texto." style="resize: none;"></textarea>
-                    <button id="copiar_saida_txt" class="btn_acao">Copiar</button>
-                </div>
-                <button id="gerar_lorem" class="btn_acao_ferramenta">Gerar texto</button>
             </div>
-        </section>
-
-        <!--DIREITA/BAIXO-->
-        <section id="informacoes" class="principal">
-            <article id="container_informacoes">
-                <img loading="lazy" src="https://apps.andremourasantos.com/imagens/questao.png" alt="Ícone de pergunta." height="96" width="96">
-                <h2>Como funciona?</h2>
-                <p>Para criar um texto Lorem Ipsum para o seu projeto, basta selecionar o tipo de texto desejado (escolhendo entre apenas palavras, frases ou parágrafos inteiros) e, em seguida, digitar a quantidade de itens. Você pode copiar o resultado clicando no botão "Copiar".</p>
-                <p>Muito comumente utilizados em protótipos e designs para popular áreas de conteúdos, o texto Lorem Ipsum vem de uma obra de Cícero, 45 AC, intitulada "De finibus bonorum et malorum" (Sobre os fins do bem e do mal), que fala sobre ética.</p>
-            </article>
         </section>
     </main>
     <footer>
@@ -103,8 +91,8 @@
             <img loading="lazy" src="https://apps.andremourasantos.com/imagens/sobre_popup.png" alt="" height="128" width="128">
             <aside>
                 <h2>Sobre o projeto</h2>
-                <p>O objetivo deste projeto é aprofundar meus conhecimentos com a criação em série de páginas similares, mas com funcionalidades diferentes.</p>
-                <p>Confira as últimas novidades da ferramenta <span style="text-decoration: underline; cursor: pointer;" onclick="abrirPopup('popup_log_novidades')">clicando aqui</span> ou pressione Alt + L!</p>
+                <p>Muito comumente utilizado em protótipos e designs para popular áreas de conteúdos, o texto Lorem Ipsum vem de uma obra de Cícero, 45 AC, intitulada "De finibus bonorum et malorum" (Sobre os fins do bem e do mal), que fala sobre ética.</p>
+                <p>Confira as últimas novidades da ferramenta <span style="text-decoration: underline; cursor: pointer;" onclick="abrirPopup('popup_log_novidades')">clicando aqui</span>.</p>
                 <p>Todo o código da página é de livre acesso e se encontra no repositório do GitHub de André Moura Santos, com licença MIT.</p>
                 <div class="container_btns_popup">
                     <button class="btn_popup btn_fechar_popup" onclick="fecharPopup('popup_sobre')">Fechar</button>
@@ -118,9 +106,7 @@
             <img loading="lazy" src="https://apps.andremourasantos.com/imagens/novidades_versao.png" alt="" height="128" width="128">
             <aside>
                 <h2>Tem novidade desde a sua última visita!</h2>
-                <p><strong class="puau_acessibilidade"><i class="ph-person-simple-bold"></i>Acessibilidade:</strong> Você agora pode selecionar uma fonte para facilitar a leitura da tela no <span class="interacao" onclick="abrirPopup('popup_puau')">Painel Universal de Ajustes do Usuário</span>.</p>
-                <p><strong>Conheça o PUAU:</strong> O novo <span class="interacao" onclick="abrirPopup('popup_puau')"><em>Painel Universal de Ajustes do Usuário</em></span> está disponvível agora nesta página! Com ele você pode salvar suas preferências de uso e muito mais.</p>
-                <p><strong>Tema da página sincronizado:</strong> Agora, o tema que você escolher para esta página será sincronizado com todas as outras ferramentas que suportam essa função.</p>
+                <p><strong>Melhorias gerais:</strong> A ferramenta agora entrega resultados mais satisfatórios na geração de textos para Palavras, Frases e Parágrafos.</p>
                 <p>O que achou das novidades? Você pode conferir as mudanças mais técnicas diretamente no meu <span class="interacao" onclick="abrirPopup('popup_sobre')">repositório do GitHub</span>!</p>
                 <div class="container_btns_popup">
                     <button class="btn_popup btn_fechar_popup" onclick="fecharPopup('popup_log_novidades')">Fechar</button>

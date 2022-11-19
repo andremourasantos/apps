@@ -10,10 +10,19 @@ Uma simples ferramenta para criar textos de Lorem Ipsum para popular áreas de c
 - Utilizar uma biblioteca de ícones de terceiros em meus projetos.
 - Criar interações mais lógicas para funções que já havia utilizado.
 - Aprofundei meus conhecimentos no uso da declaração Switch e na identificação de bons casos de uso.
+- Utilizar objetos para faciltiar a interação entre HTML e JS.
+- Comecei a aprender mais sobre como utilizar Regex para filtrar textos.
 
 - - - 
 
 ## Log
+- **Atualização 1.4**
+    - A ferramenta agora entrega resultados mais satisfatórios na geração de textos para Palavras, Frases e Parágrafos.
+    - Diversas otimizações de código.
+    - Remodelagem da página para destacar mais a ferramenta.
+
+- **Atualização 1.2/1.3**
+    - Agora a ferramenta será inteiramente integrada na minha página de ferramentas.
 
 - **Atualização 1.1**
     - Adicioando PUAU.
