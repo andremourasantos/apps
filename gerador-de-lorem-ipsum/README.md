@@ -16,6 +16,9 @@ Uma simples ferramenta para criar textos de Lorem Ipsum para popular áreas de c
 - - - 
 
 ## Log
+- **Atualização 1.4.1**
+    - Ajuste nas configurações padrão do PUAU da ferramenta.
+
 - **Atualização 1.4**
     - A ferramenta agora entrega resultados mais satisfatórios na geração de textos para Palavras, Frases e Parágrafos.
     - Diversas otimizações de código.

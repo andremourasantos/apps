@@ -1,8 +1,8 @@
 //↓↓ INFO DA FERRAMENTA
 let Ferramenta = {
     nome: 'gerador-de-lorem-ipsum',
-    info: 'versao:1.4;temaDaPagina:Claro;',
-    PUAU: 'acessibilidadeFonte:1;salvarDados:0;sincronizarTema:1;temaDoDispositivo:2;habilitarCookies:0'
+    info: 'versao:1.4.1;temaDaPagina:Claro;',
+    PUAU: 'acessibilidadeFonte:1;salvarDados:0;sincronizarTema:2;temaDoDispositivo:1;habilitarCookies:0'
 }
 
 //↓↓ FERRAMENTA

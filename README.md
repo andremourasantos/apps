@@ -16,8 +16,15 @@ Esse site agrupa todas as ferramentas criadas por mim, bem como recursos e outro
 - - - 
 
 ## Log
+- **Atualização 2.5.3**
+    - **Gerador de Lorem Ipsum (1.4.1):**
+        - Ajuste nas configurações padrão do PUAU da ferramenta.
+    - **Gerador de QR Code (1.3):**
+        - Agora a ferramenta é capaz de utilizar parâmetros de URL para realizar ações automaticamente. Essa habilidade será útil para futuras integrações com outras ferramentas.
+        - Remodelagem da página para destacar mais a ferramenta.
+
 - **Atualização 2.5.2**
-    - **Gerador de Lorem Ipsum:**
+    - **Gerador de Lorem Ipsum (1.4):**
         - A ferramenta agora entrega resultados mais satisfatórios na geração de textos para Palavras, Frases e Parágrafos.
         - Diversas otimizações de código.
         - Remodelagem da página para destacar mais a ferramenta.
