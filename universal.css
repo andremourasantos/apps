@@ -238,6 +238,7 @@ input[type=number]::-webkit-inner-spin-button {display: none;}
 /*↓ RESPONSIVIDADE ↓*/
 @media screen and (max-width: 1024px) {
     html {height: fit-content;}
+    main.uma_coluna {width: 80vw; margin-inline: auto;}
     main.duas_colunas {flex-direction: column; height: fit-content;}
     main.duas_colunas section.principal {width: 80vw; margin: 40px auto; height: fit-content;}
     #container_ferramenta{height: fit-content;}
