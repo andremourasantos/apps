@@ -142,12 +142,12 @@ header > section:nth-of-type(2) {justify-content: end; align-items: center; flex
 
 /*↓ ÍCONES ↓*/
 i {color: var(--cor_icones);font-size: 40px; text-align: center;}
-#icone_Ajustes > i {transform: rotate(90deg);}
+#btn_popup_PUAU > i {transform: rotate(90deg);}
 h3 > i{font-size: var(--tamanho_texto_m);}
 p i {font-size: var(--tamanho_texto_m);}
 
 /*↓ RODAPÉ ↓*/
-footer {height: fit-content; padding: 20px 40px; display: flex; align-items: center; justify-content: center; height: calc(10vh - 40px);}
+footer {height: fit-content; padding: 20px 40px; display: flex; align-items: center; justify-content: center;}
 footer p, footer a {text-align: center; color: var(--cor_texto);}
 
 /*↓ POPUPS ↓*/

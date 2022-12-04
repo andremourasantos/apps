@@ -10,8 +10,17 @@ window.addEventListener('load', ()=>{
 //↓↓ CONFIGURAÇÕES
 let Ferramenta = {
     nome: 'gerador-de-qrcode',
-    info: 'versao:1.3;temaDaPagina:Claro;',
+    info: 'nome:Gerador de QR Code;descricao:Crie QR Codes estáticos facilmente.;versao:1.3;temaDaPagina:Claro;',
     PUAU: 'acessibilidadeFonte:1;salvarDados:0;sincronizarTema:2;temaDoDispositivo:1;habilitarCookies:0',
+    Info: {
+        nome: 'Gerador de QR Code',
+        descricao: 'Crie QR Codes estáticos facilmente.',
+        sobre: `Este projeto utiliza a API do Google para criar QR Codes estáticos de validade ilimitada. Seu pedido é enviado e então o QR Code é gerado e exibido nesta página. Seu pedido não é salvo em nenhuma instância pela API do Google.`,
+        novidades: [
+            ['Acessibilidade','Você agora pode selecionar uma fonte para facilitar a leitura da tela no Painel Universal de Ajustes do Usuário.'],
+            ['Parâmetros de URL','Agora você pode fazer requisições via parâmetros na URL da ferramenta! Confira o GitHub para mais informações.']
+        ]
+    }
 }
 let QRCode = {
     gerarURL: ()=>{return QRCode.api + QRCode.requisicao},
@@ -82,20 +91,4 @@ function recriarQRCode() {
     btnacao.removeEventListener('click', recriarQRCode)
     btnacao.addEventListener('click', checarEntradas)
     btnacao.innerText = 'Criar QRCode' 
-}
-
-//↓↓ CÓDIGO DE ESTILIZAÇÃO TEMPORÁRIO
-/* CÓDIGO DE ESTILIZAÇÃO TEMPORÁRIO
-    Esse código será adaptado e utilizado para determinar a altura dos elementos em todas as outras páginas de ferramenta em uma futura atualização. As ferramentas perderão a coluna #informacoes e ficarão apenas com a #ferramenta. As informações importantes sobre a ferramenta serão movidas para o #popup_sobre.
-*/
-window.addEventListener('resize', ()=>{ajustarAlturaFerramenta()})
-function ajustarAlturaFerramenta(){
-    let Alturas = {
-        dispositivo: window.innerHeight,
-        cabecalho: document.querySelector('header').clientHeight,
-        rodape: document.querySelector('footer').clientHeight
-    }
-    if(Alturas.dispositivo < 500){return}
-
-    document.querySelector('main > *').style.height = `calc(${Alturas.dispositivo}px - ${Alturas.cabecalho}px - ${Alturas.rodape}px)`
 }

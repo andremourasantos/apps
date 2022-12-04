@@ -1,5 +1,9 @@
 //↓↓ SCRIPTS PRIMORDIAIS
 window.addEventListener('DOMContentLoaded', async () => {
+    //IMPORTA OS PEDAÇOS E EXECUTA TODOS OS CÓDIGOS REFERNTES AOS ELEMENTOS IMPORTADOS
+    await importarPedacos();
+    atualizarPUAU(); autoAjustePUAU(); puauTrocarFonteParaSuperlegivel();
+
     //CONFERIR ARMAZENAMENTO LOCAL
     if(localStorage.getItem(`info${Ferramenta.nome}`) == null){}else{localStorage.clear()}
     if(localStorage.getItem(`info_${Ferramenta.nome}`) == null){localStorage.setItem(`info_${Ferramenta.nome}`, Ferramenta.info)}
@@ -46,9 +50,24 @@ window.addEventListener('load', async ()=>{
         document.body.appendChild(elemento)
     }; scriptPhosphorIcons();
 
-    //IMPORTA OS PEDAÇOS E EXECUTA TODOS OS CÓDIGOS REFERNTES AOS ELEMENTOS IMPORTADOS.
-    await importarPedacos();
-    atualizarPUAU(); autoAjustePUAU(); puauTrocarFonteParaSuperlegivel();
+    //↓↓CENTRALIZAÇÃO DA FERRAMENTA
+    const ajustarTamanhos = () => {
+        const Altura = {
+            tela: window.innerHeight,
+            ferramenta: document.querySelector('#ferramenta').clientHeight,
+            cabecalho: document.querySelector('header').clientHeight,
+            rodape: document.querySelector('footer').clientHeight
+        }
+
+        if(Altura.tela < (Altura.cabecalho + Altura.ferramenta + Altura.rodape)){document.querySelector('#container_ferramenta').style.height = 'auto'; return}
+
+        document.querySelector('#container_ferramenta').style.height = `calc(${Altura.tela - (Altura.cabecalho + Altura.rodape)}px)`
+    }
+
+        //↓↓ ACIONADORES
+        const observadorDeDimensoes = new ResizeObserver(function(elementos){ajustarTamanhos()}); observadorDeDimensoes.observe(document.querySelector("#ferramenta"))
+
+        window.addEventListener('resize', ()=>{ajustarTamanhos()})
 })
 
 //↓↓ SCRIPTS DE IMPORTAÇÃO
@@ -57,9 +76,24 @@ async function importarPedacos(pedaco){
     const popups = document.querySelector('#container_popup')
 
     //PEDAÇOS DISPONÍVEIS PARA IMPORTAÇÃO
+    const importarCabecalho = async () => {
+        try {
+            const res = await fetch('/pedaco/cabecalho.html')
+            if(res.status =! 200){throw new Error(res.status)}
+            document.querySelector('header').innerHTML = (await res.text()).toString()
+
+            //Preenchimento das informações
+            if((await fetch('logo.png')).status != 200){document.querySelector('header img').remove()}
+            document.querySelector('header h1').innerText = pegarDadosFerramenta('nome')
+            document.querySelector('header p').innerText = pegarDadosFerramenta('descricao')
+        } catch (erro) {
+            console.log(erro)
+        }
+    };
+
     const importarPUAU = async () => {
         try {
-            const res = await fetch('/pedaco/puau.html')
+            const res = await fetch('/pedaco/popups/puau.html')
             if(res.status != 200){throw new Error(res.status)}
             popups.innerHTML += (await res.text()).toString()
         } catch (erro) {
@@ -70,7 +104,7 @@ async function importarPedacos(pedaco){
 
     const importarInformacoesCookies = async () => {
         try {
-            const res = await fetch('/pedaco/informacoes_cookies.html');
+            const res = await fetch('/pedaco/popups/informacoes_cookies.html');
             if(res.status != 200){throw new Error(res.status)}
             popups.innerHTML += (await res.text()).toString();
         } catch (erro) {
@@ -78,6 +112,45 @@ async function importarPedacos(pedaco){
             trocarOnClickAcionador('popup_informacoes_cookies', 'popup_erroFetch')
         }
     };
+
+    const importarPopupSobre = async () => {
+        try {
+            const res = await fetch('/pedaco/popups/sobre.html')
+            if(res.status != 200){throw new Error(res.status)}
+            popups.innerHTML += (await res.text()).toString()
+            document.querySelector('#popup_sobre p:first-of-type').innerHTML = Ferramenta.Info.sobre
+        } catch (erro) {
+            console.log(erro)
+        }
+    };
+
+    const importarNovidades = async () => {
+        try {
+            const res = await fetch('/pedaco/popups/log_novidades.html')
+            if(res.status != 200){throw new Error(res.status)}
+            popups.innerHTML += (await res.text()).toString()
+
+            Ferramenta.Info.novidades.forEach(item => {
+                const icone = document.createElement('i')
+                const titulo = document.createElement('strong')
+                const descricao = document.createElement('p')
+
+                if(item[0] === 'Acessibilidade'){
+                    icone.classList.add('ph-person-simple-bold')
+                    titulo.classList.add('puau_acessibilidade')
+                    titulo.appendChild(icone)
+                }
+
+                titulo.innerHTML += `${item[0]}:`
+                descricao.appendChild(titulo)
+                descricao.innerHTML += ` ${item[1].includes('Painel Universal de Ajustes do Usuário') ? item[1].replace('Painel Universal de Ajustes do Usuário', `<span class="interacao" onclick="abrirPopup('popup_puau')" title="Abrir Painel Universal de Ajustes do Usuário.">Painel Universal de Ajustes do Usuário</span>`) : item[1]}`
+
+                document.querySelector('#popup_log_novidades div:first-of-type').appendChild(descricao)
+            })
+        } catch (erro) {
+            console.log(erro)
+        }
+    }
 
     const importarRodape = async () => {
         try {
@@ -92,7 +165,7 @@ async function importarPedacos(pedaco){
     const importarPopupErroFetch = async () => {
         if(! document.querySelector('#popup_erroFetch')){
             try {
-                const res = await fetch('/pedaco/erro_fetch.html')
+                const res = await fetch('/pedaco/minipopups/erro_fetch.html')
                 if(res.status != 200){throw new Error(res.status)}
                 popups.innerHTML += (await res.text()).toString()
             } catch (erro) {
@@ -102,8 +175,20 @@ async function importarPedacos(pedaco){
     };
 
     switch (pedaco) {
+        case 'importarCabecalho':
+            await importarCabecalho();
+            break;
+
         case 'importarPUAU':
             await importarPUAU();
+            break;
+
+        case 'importarPopupSobre':
+            await importarPopupSobre();
+            break;
+
+        case 'importarNovidades':
+            await importarNovidades();
             break;
 
         case 'importarInformacoesCookies':
@@ -119,10 +204,13 @@ async function importarPedacos(pedaco){
             break;
 
         default:
-            await importarRodape();
+            await importarCabecalho();
             await importarPUAU();
             await importarInformacoesCookies();
+            await importarPopupSobre();
+            await importarNovidades();
             await importarPopupErroFetch();
+            await importarRodape();
             break;
     }
 }
@@ -332,6 +420,15 @@ function pegarDadosLocais(item, valor=null) {
 
 //↓↓ ABRIR LINK
 function abrirLink(link,delay=0,alvo='_blank'){setTimeout(()=>{window.open(`https://${link}`, `${alvo}`)},delay)}
+
+//↓↓ ADICIONAR ACIONADORES PADRÃO
+function adicionarAcionadoresPadrao(){
+    const Acionadores = {
+        temaDaPagina: document.querySelector('#btn_alterarTemaPagina'),
+        popupPUAU: document.querySelector('#btn_popup_PUAU'),
+        popupSobre: document.querySelector('#btn_popup_sobre')
+    }
+}
 
 //↓↓ INSERÇÃO DOS CÓDIGOS DE TAGS E AFINS
 /*function insercaoDeTags(){

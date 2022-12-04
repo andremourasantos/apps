@@ -1,17 +1,23 @@
 //↓↓ INFO DA FERRAMENTA
 let Ferramenta = {
     nome: 'link-de-whatsapp',
-    info: 'versao:2.2;temaDaPagina:Claro;dadosSalvos:telefone==',
-    PUAU: 'acessibilidadeFonte:1;salvarDados:2;sincronizarTema:2;temaDoDispositivo:1;habilitarCookies:0'
+    info: 'nome:Link de WhatsApp;descricao:Crie links facilmente.;versao:2.2;temaDaPagina:Claro;dadosSalvos:telefone==',
+    PUAU: 'acessibilidadeFonte:1;salvarDados:2;sincronizarTema:2;temaDoDispositivo:1;habilitarCookies:0',
+    Info: {
+        nome: 'Link de WhatsApp',
+        descricao: 'Crie links facilmente.',
+        sobre: `O objetivo desse projeto é proporcionar uma ferramenta útil e de livre acesso para criar links de WhatsApp sem propaganda, com foco exclusivo no Brasil.`,
+        novidades: [
+            ['Acessibilidade','Você agora pode selecionar uma fonte para facilitar a leitura da tela no Painel Universal de Ajustes do Usuário.'],
+            ['Conheça o PUAU','O novo Painel Universal de Ajustes do Usuário está disponvível agora nesta página! Com ele você pode salvar suas preferências de uso e muito mais.'],
+            ['Melhorias de leitura','Agora o número de telefone digitado é formatado de maneira a facilitar a sua leitura.'],
+            ['Melhorias na usabilidade','A ferramenta adaptará a exibição das entradas, proporcionando uma experiência de uso mais direta.'],
+            ['Tema da página sincronizado','Agora, o tema que você escolher para esta página será sincronizado com todas as outras ferramentas que suportam essa função.']
+        ]
+    }
 }
 
 //↓↓ ACIONADORES
-document.querySelector('#alteraTemaPagina').addEventListener('click', ()=>{alterarTema(1)})
-
-document.querySelector('#icone_Ajustes').addEventListener('click', ()=>{abrirPopup('popup_puau')})
-
-document.querySelector('#icone_Info').addEventListener('click', ()=>{abrirPopup('popup_sobre')})
-
 window.addEventListener('load', function(){
     document.querySelector('#numero_telefone').focus()
 })

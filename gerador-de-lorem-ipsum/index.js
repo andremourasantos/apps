@@ -1,8 +1,16 @@
 //↓↓ INFO DA FERRAMENTA
 let Ferramenta = {
     nome: 'gerador-de-lorem-ipsum',
-    info: 'versao:1.4.1;temaDaPagina:Claro;',
-    PUAU: 'acessibilidadeFonte:1;salvarDados:0;sincronizarTema:2;temaDoDispositivo:1;habilitarCookies:0'
+    info: 'nome:Gerador de Lorem Ipsum;descricao:Textos genéricos para seus protótipos.;versao:1.4.1;temaDaPagina:Claro;',
+    PUAU: 'acessibilidadeFonte:1;salvarDados:0;sincronizarTema:2;temaDoDispositivo:1;habilitarCookies:0',
+    Info: {
+        nome: 'Gerador de Lorem Ipsum',
+        descricao: 'Textos genéricos para seus protótipos.',
+        sobre: `Muito comumente utilizado em protótipos e designs para popular áreas de conteúdos, o texto Lorem Ipsum vem de uma obra de Cícero, 45 AC, intitulada "De finibus bonorum et malorum" (Sobre os fins do bem e do mal), que fala sobre ética.`,
+        novidades: [
+            ['Melhorias gerais','A ferramenta agora entrega resultados mais satisfatórios na geração de textos para Palavras, Frases e Parágrafos.']
+        ]
+    }
 }
 
 //↓↓ FERRAMENTA
@@ -101,10 +109,6 @@ const Gerador = {
 }
 
 //↓↓ ADICONADORES
-document.querySelector('#alteraTemaPagina').addEventListener('click', ()=>{alterarTema(1)})
-document.querySelector('#icone_Ajustes').addEventListener('click', ()=>{abrirPopup('popup_puau')})
-document.querySelector('#icone_Info').addEventListener('click', ()=>{abrirPopup('popup_sobre')})
-
 Gerador.Interacoes.removerUm.addEventListener('click', ()=>{document.querySelector('#quantidade_txt').stepDown()})
 Gerador.Interacoes.adicionarUm.addEventListener('click', ()=>{document.querySelector('#quantidade_txt').stepUp()})
 Gerador.Interacoes.gerar.addEventListener('click', ()=>{Gerador.quantidadeTexto = document.querySelector('#quantidade_txt').value; Gerador.tipoTexto = document.querySelector('#tamanho_txt').value; Gerador.gerar(Gerador.quantidadeTexto, Gerador.tipoTexto)})

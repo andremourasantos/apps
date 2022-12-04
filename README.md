@@ -16,6 +16,12 @@ Esse site agrupa todas as ferramentas criadas por mim, bem como recursos e outro
 - - - 
 
 ## Log
+- **Atualização 2.5.4**
+    - Agora as informações apresentadas no *popup_log_novidades* e *popup_sobre* são preenchidas através do novo Objeto *Info*, em *Ferramenta*, no código da página.
+    - O `<header>` e os popups de todas as páginas agora são importados através do *fecth* em */pedacos/*.
+    - O novo layout das páginas agora prioriza a ferramenta em si, removendo a seção de informações.
+    - Otimizações gerais no código.
+
 - **Atualização 2.5.3**
     - **Gerador de Lorem Ipsum (1.4.1):**
         - Ajuste nas configurações padrão do PUAU da ferramenta.
