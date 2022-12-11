@@ -1,6 +1,5 @@
 //↓↓ EVENTOS PRIMORDIAIS
 window.addEventListener('load', ()=>{
-    ajustarAlturaFerramenta()
     document.querySelector('#requisicao').focus()
     setTimeout(() => {
         QRCode.ParametrosURL.obter()
@@ -10,7 +9,7 @@ window.addEventListener('load', ()=>{
 //↓↓ CONFIGURAÇÕES
 let Ferramenta = {
     nome: 'gerador-de-qrcode',
-    info: 'nome:Gerador de QR Code;descricao:Crie QR Codes estáticos facilmente.;versao:1.3;temaDaPagina:Claro;',
+    info: 'nome:Gerador de QR Code;descricao:Crie QR Codes estáticos facilmente.;versao:1.3.1;temaDaPagina:Claro;',
     PUAU: 'acessibilidadeFonte:1;salvarDados:0;sincronizarTema:2;temaDoDispositivo:1;habilitarCookies:0',
     Info: {
         nome: 'Gerador de QR Code',
@@ -31,7 +30,7 @@ let QRCode = {
             if(window.location.href.includes('?')){
                 let parametrosURL = window.location.href.split('?')[1].split('&').map(parm => {return parm.split('=')})
 
-                for(parm of parametrosURL){if(parm[i] === 'url'){requisicao.value = parm[1]; btnacao.click(); break;}}
+                for(parm of parametrosURL){if(parm[0] === 'url'){requisicao.value = parm[1]; btnacao.click(); break;}}
             }
         }
     },

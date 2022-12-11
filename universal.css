@@ -69,10 +69,11 @@ p > a {text-decoration: underline; color: var(--cor_texto);}
 button {display: block; font-family: var(--texto_titulo); font-weight: bold; transition-duration: 250ms; border: none; border-radius: 0; padding: 5px 10px; cursor: pointer; font-size: var(--tamanho_texto_p); background-color: transparent;}
 button:active {transform: scale(0.9);}
 button:disabled {filter: grayscale(1); cursor: not-allowed;}
+button:disabled:active {transform: none;}
 header p, footer p {font-size: var(--tamanho_texto_p);}
 
 /*↓ CORPO ↓*/
-body {background-color: var(--cor_plano_de_fundo); max-width: 1440px; width: 100vw; margin: auto;}
+body {background-color: var(--cor_plano_de_fundo); max-width: 1440px; width: 100%; margin: auto;}
 main.duas_colunas {display: flex; flex-direction: row; justify-content: center; align-items: center; height: 75vh;}
 main.duas_colunas > section {width: 50vw;}
 
@@ -84,6 +85,7 @@ main.duas_colunas > section {width: 50vw;}
 .btn_fechar_popup {background-color: var(--cor_btn_secundario); color: var(--cor_texto_btn_secundario);}
 .btn_acao_popup {background-color: var(--cor_btn_principal); color: var(--cor_texto_btn_principal);}
 .btn_acao_ferramenta {min-height: 50px; width: 100%; border-radius: var(--arredondamento_borda_btn); background-color: var(--cor_btn_principal); color: var(--cor_texto_btn_principal); margin: 0px auto 20px auto;}
+.btn_opcao_compartilhar {background-color: var(--cor_btn_principal); color: var(--cor_texto_btn_principal); display: flex; align-items: center; justify-content: space-around; border-radius: var(--arredondamento_borda_btn); width: 180px;}
 
 /*↓ CONTEÚDO ↓*/
 header {height: 15vh; display: flex; align-items: center;}
@@ -213,6 +215,21 @@ article.popup p {margin: 20px auto;}
     article.minipopup {display:flex; flex-direction: column;justify-content: center; align-items: center; gap: 20px; max-width: calc(300px - 80px); max-height: calc(80vh - 80px); padding: 40px; text-align: center; color: var(--cor_texto); background-color: var(--cor_plano_de_fundo); border-radius: var(--arredondamento_borda); animation: popupAparecer 250ms ease-out;}
 
     article.minipopup > img {margin-bottom: 20px;}
+
+    /*↓ COMPARTILHAR ↓*/
+    #popup_compartilhar {container: popup_compartilhar / inline-size;}
+    #popup_compartilhar aside > div:first-of-type {display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; row-gap: 20px;}
+    .btn_opcao_compartilhar > i {color: var(--cor_texto_btn_principal);}
+
+    /*DECLARAÇÃO PODE NÃO SER SUPORTADA PELO NAVEGADOR DO USUÁRIO*/
+    @container popup_compartilhar (max-width: 380px){
+        .btn_opcao_compartilhar {width: 100%; justify-content: center; gap: 10px;}
+    }
+
+    /*CASO @CONTAINER NÃO SEJA SUPORTADO, A REGRA ABAIXO SERÁ APLICADA*/
+    @media screen and (max-width: 575px) {
+        .btn_opcao_compartilhar {width: 100%; justify-content: center; gap: 10px;}
+    }
 
 /*↓ OUTROS ↓*/
 *:focus {outline-color: var(--cor_borda_secundaria);}

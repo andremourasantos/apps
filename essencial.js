@@ -1,8 +1,22 @@
 //↓↓ SCRIPTS PRIMORDIAIS
 window.addEventListener('DOMContentLoaded', async () => {
+    //IMPORTAR NOVIDADES GERAIS DA FERRAMENTA
+    const NovidadesGerais = [
+        ['Compartilhe facilmente', `Está mais fácil do que nunca compartilhar a página, basta clicar no <span class="interacao" onclick="compartilharPagina()" title="Compartilhar página">novo ícone de compartilhar</span> no cabeçalho da página!`],
+    ]; NovidadesGerais.forEach(item => {Ferramenta.Info.novidades.push(item)})
+
     //IMPORTA OS PEDAÇOS E EXECUTA TODOS OS CÓDIGOS REFERNTES AOS ELEMENTOS IMPORTADOS
     await importarPedacos();
     atualizarPUAU(); autoAjustePUAU(); puauTrocarFonteParaSuperlegivel();
+    
+    //CHECAR VERSAO
+    if(pegarDadosLocais('versao') != pegarDadosFerramenta('versao')){
+        //EXIBIR POPUP NOVIDADES
+        abrirPopup('popup_log_novidades')
+
+        //ATUALIZAR ARMAZENAMENTO LOCAL
+        pegarDadosLocais('versao', pegarDadosFerramenta('versao'))
+    }
 
     //CONFERIR ARMAZENAMENTO LOCAL
     if(localStorage.getItem(`info${Ferramenta.nome}`) == null){}else{localStorage.clear()}
@@ -33,15 +47,6 @@ window.addEventListener('DOMContentLoaded', async () => {
 
 //↓↓ EVENTOS PÓS CARRAGAMENTO
 window.addEventListener('load', async ()=>{
-    //CHECAR VERSAO
-    if(pegarDadosLocais('versao') != pegarDadosFerramenta('versao')){
-        //EXIBIR POPUP NOVIDADES
-        abrirPopup('popup_log_novidades')
-
-        //ATUALIZAR ARMAZENAMENTO LOCAL
-        pegarDadosLocais('versao', pegarDadosFerramenta('versao'))
-    }
-
     //ADICIONAR CÓDIGO DO PHOSPHORICONS
     /*O código foi retirado do 'head' do HTML por motivos de desempenho de carregamento.*/
     const scriptPhosphorIcons = () => {
@@ -98,7 +103,6 @@ async function importarPedacos(pedaco){
             popups.innerHTML += (await res.text()).toString()
         } catch (erro) {
             console.log(erro)
-            trocarOnClickAcionador('icone_Ajustes', 'popup_erroFetch')
         }      
     };
 
@@ -109,7 +113,6 @@ async function importarPedacos(pedaco){
             popups.innerHTML += (await res.text()).toString();
         } catch (erro) {
             console.log(erro)
-            trocarOnClickAcionador('popup_informacoes_cookies', 'popup_erroFetch')
         }
     };
 
@@ -143,7 +146,7 @@ async function importarPedacos(pedaco){
 
                 titulo.innerHTML += `${item[0]}:`
                 descricao.appendChild(titulo)
-                descricao.innerHTML += ` ${item[1].includes('Painel Universal de Ajustes do Usuário') ? item[1].replace('Painel Universal de Ajustes do Usuário', `<span class="interacao" onclick="abrirPopup('popup_puau')" title="Abrir Painel Universal de Ajustes do Usuário.">Painel Universal de Ajustes do Usuário</span>`) : item[1]}`
+                descricao.innerHTML += ` ${item[1].includes('Painel Universal de Ajustes do Usuário') ? item[1].replace('Painel Universal de Ajustes do Usuário', `<span class="interacao" onclick="abrirPopup('popup_puau')" title="Abrir Painel Universal de Ajustes do Usuário">Painel Universal de Ajustes do Usuário</span>`) : item[1]}`
 
                 document.querySelector('#popup_log_novidades div:first-of-type').appendChild(descricao)
             })
@@ -174,6 +177,28 @@ async function importarPedacos(pedaco){
         }
     };
 
+    const importarPopupCompartilhar = async () => {
+        try {
+            const res = await fetch('/pedaco/popups/compartilhar.html')
+            if(res.status != 200){throw new Error(res.status)}
+            popups.innerHTML += (await res.text()).toString()
+
+            const res2 = await fetch('/pedaco/minipopups/compartilhar.html')
+            if(res.status != 200){throw new Error(res2.status)}
+            popups.innerHTML += (await res2.text()).toString()
+        } catch (erro) {console.og(erro)}
+    };
+
+    const importarPopupErro = async () => {
+        if(! document.querySelector('#popup_noti_erro')){
+            try {
+                const res = await fetch('/pedaco/minipopups/erro.html')
+                if(res.status != 200){throw new Error(res.status)}
+                popups.innerHTML += (await res.text()).toString()
+            } catch (erro) {console.log(erro)}
+        }
+    }
+
     switch (pedaco) {
         case 'importarCabecalho':
             await importarCabecalho();
@@ -203,6 +228,14 @@ async function importarPedacos(pedaco){
             await importarPopupErroFetch();
             break;
 
+        case 'importarPopupCompartilhar':
+            await importarPopupCompartilhar();
+            break;
+
+        case 'importarPopupErro':
+            await importarPopupErro();
+            break;
+
         default:
             await importarCabecalho();
             await importarPUAU();
@@ -210,6 +243,7 @@ async function importarPedacos(pedaco){
             await importarPopupSobre();
             await importarNovidades();
             await importarPopupErroFetch();
+            await importarPopupCompartilhar();
             await importarRodape();
             break;
     }
@@ -341,13 +375,76 @@ function alterarTema(interacao=0){
     }
 }
 
-//↓↓ ALTERA ATRIBUTO ONCLICK
-function trocarOnClickAcionador(acionador, novoID) {
-    const elemento = document.querySelector(`#${acionador}`)
-    elemento.setAttribute('onclick', `abrirPopup('${novoID}')`)
+//↓↓ POPUPS
+//↓↓ OBJETOS DE AGREGAÇÃO
+/*OBJETO POPUPS
+  Esse objeto deve irá substituir as funções abrirPopup() e fecharPopup() em uma futura atualização.  
+*/
+const Popups = {
+    abrir: id => {
+        //Fecha todos os Popups anteriores (evitar erros)
+        document.querySelectorAll('*[id^="popup_"]').forEach(popup => {popup.style.display = 'none'})
+
+        //Aplica os estilos ao respectivo Popup
+        setTimeout(async () => {
+            try {
+                document.querySelector('html').style.overflow = 'hidden';
+                document.querySelector('#container_popup').style.display = 'flex';
+                document.querySelector(`#${id}`).style.display = 'block';
+                document.querySelector(`#${id}`).scrollTo(0,0)
+            } catch (erro) {
+                try {
+                    await importarPedacos('importarPopupErroFetch')
+                    document.querySelector('#popup_erroFetch').style.display = 'block';
+                } catch (erro) {
+                    alert(`Ocorreu um erro e não foi possível resgatar o recurso solicitado: #${id}`)
+                    document.querySelector('#container_popup').style.display = 'none';
+                    document.querySelector('html').style.overflow = 'scroll'
+                    return;
+                }
+            }
+        }, 125);
+    },
+    fechar: id => {
+        //Aplica estilos ao respectivo Popup
+        try {
+            document.querySelector(`#${id}`).style.animation = 'popupDesaparecer 250ms ease-out';
+        } catch (error) {
+            document.querySelector('#container_popup').style.display = 'none';
+            document.querySelector('html').style.overflow = 'scroll'
+            return;
+        }
+    
+        //Fecha o popup
+        setTimeout(() => {
+            document.querySelector(`#${id}`).style.display = 'none';
+            document.querySelector('#container_popup').style.display = 'none';
+            document.querySelector('html').style.overflow = 'scroll'
+            document.querySelector(`#${id}`).style.animationName = 'popupAparecer'
+        }, 250);
+    },
+    Minipopups: {
+        abrir: (id, tempo=3000) => {
+            Popups.abrir(id)
+
+            if(tempo!=0){
+                setTimeout(() => {
+                    Popups.fechar(id)
+                }, tempo);
+            }
+        },
+        modificar: (id, tempo=3000, titulo, texto) => {
+            if(typeof(titulo) == 'string'){document.querySelector(`#${id} h3`).innerText = titulo}
+            if(typeof(texto) == 'string'){document.querySelector(`#${id} p`).innerText = texto}    
+            
+            Popups.abrir(id)
+            setTimeout(() => {
+                Popups.fechar(id)
+            }, tempo);
+        }
+    }
 }
 
-//↓↓ POPUPS
 function abrirPopup(id){
     id = `#${id}`
 
@@ -421,13 +518,89 @@ function pegarDadosLocais(item, valor=null) {
 //↓↓ ABRIR LINK
 function abrirLink(link,delay=0,alvo='_blank'){setTimeout(()=>{window.open(`https://${link}`, `${alvo}`)},delay)}
 
-//↓↓ ADICIONAR ACIONADORES PADRÃO
-function adicionarAcionadoresPadrao(){
-    const Acionadores = {
-        temaDaPagina: document.querySelector('#btn_alterarTemaPagina'),
-        popupPUAU: document.querySelector('#btn_popup_PUAU'),
-        popupSobre: document.querySelector('#btn_popup_sobre')
+//↓↓ COMPARTILHAR
+async function compartilharPagina() {
+    const Info = {
+        title: Ferramenta.Info.nome,
+        text: Ferramenta.Info.descricao,
+        url: window.location.host
     }
+
+    //PRIMEIRA OPÇÃO DE COMPARTILHAMENTO: API NAVIGATOR.SHARE()
+    try {
+        await navigator.share(Info)
+        const agradecimento = () => {
+            if(document.visibilityState === 'visible') {
+                document.removeEventListener('visibilitychange', agradecimento)
+
+                setTimeout(() => {
+                    Popups.Minipopups.abrir('popup_compartilhar_agradecimento')
+                }, 1000);
+            }
+        }
+
+        setTimeout(() => {
+            document.addEventListener('visibilitychange', agradecimento)
+        }, 500);
+    } catch (erro) {
+        if(erro.toString().includes('canceled')){return}
+        Popups.abrir('popup_compartilhar')
+    }
+
+    //OPÇÕES DO POPUP DE COMPARTILHAMENTO (CASO API ANTERIOR NÃO SEJA SUPORTADA)
+    //OPÇÃO 1: COMPARTILHAR PELO WHATSAPP
+    const compartilharWhatsApp = async ()=>{
+        document.querySelector("#popup_compartilhar > aside > div:nth-child(3) > button:nth-child(1)").removeEventListener('click', compartilharWhatsApp)
+
+        try {
+            window.open(`https://api.whatsapp.com/send/?phone=&text=${Info.url}`)
+            Popups.fechar('popup_compartilhar')
+            const agradecimento = ()=>{
+                if(document.visibilityState === 'visible'){
+                    document.removeEventListener('visibilitychange', agradecimento)
+                    setTimeout(() => {
+                        Popups.Minipopups.abrir('popup_compartilhar_agradecimento')
+                    }, 250);
+                }
+            }
+            setTimeout(() => {
+                document.addEventListener('visibilitychange', agradecimento)
+            }, 500);
+        } catch (erro) {
+            await importarPedacos('importarPopupErro');
+            Popups.Minipopups.modificar('popup_noti_erro', 3000, 'Ops, algo deu errado...', 'Não foi possível compartilhar pelo WhatsApp.')
+
+            document.querySelector("#popup_compartilhar > aside > div:nth-child(3) > button:nth-child(1)").disabled = true
+        }
+    }
+
+    //OPÇÃO 2: COPIAR PARA ÁREA DE TRANSFERÊNCIA
+    const copiarLink = async ()=>{
+        try {
+            document.querySelector("#popup_compartilhar > aside > div:nth-child(3) > button:nth-child(2)").removeEventListener('click', copiarLink)
+
+            navigator.clipboard.writeText(`${Info.text.replace('.', ':')} ${Info.url}`)
+
+            Popups.Minipopups.abrir('popup_compartilhar_agradecimento')
+        } catch (erro) {
+            await importarPedacos('importarPopupErro');
+            Popups.Minipopups.modificar('popup_noti_erro', 3000, 'Ops, algo deu errado...', 'Não foi possível copiar para área de transferência.')
+
+            document.querySelector("#popup_compartilhar > aside > div:nth-child(3) > button:nth-child(2)").disabled = true
+        }
+    }
+
+    /*CÓDIGO EM TESTE: NÃO ESTÁ ATIVADO DEVIDO AO RESULTADO OBTIDO NÃO TER SEIDOA NIMADOR COMO O ESPERADO.
+    const vibrar = ()=>{
+        try {
+            setTimeout(()=>{navigator.vibrate([375, 187.5, 187.5, 25]);},250)
+            //O INTERVALO DE EXECUÇÃO É PARA COINCIDIR COM A EXECUÇÃO DA ANIMAÇÃO NO CSS.
+        } catch (error) {return}
+    }*/
+
+    //ACIONADORES
+    document.querySelector("#popup_compartilhar > aside > div:nth-child(3) > button:nth-child(1)").addEventListener('click', compartilharWhatsApp)
+    document.querySelector("#popup_compartilhar > aside > div:nth-child(3) > button:nth-child(2)").addEventListener('click', copiarLink)
 }
 
 //↓↓ INSERÇÃO DOS CÓDIGOS DE TAGS E AFINS

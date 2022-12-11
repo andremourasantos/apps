@@ -27,3 +27,12 @@ Com esta ferramenta, você pode criar QR Estáticos para diversos fins através 
 
 - **Atualizaão 1.0**
     - Lançamento da ferramenta.
+
+- - -
+
+## Imagens do projeto 📸
+Confira as imagens do projeto, que representam a sua versão mais recente.
+
+<img src="imagens/site_computador.png" style="border-radius: 12px;">
+<br><br>
+<img src="imagens/site_telefone.png" style="border-radius: 12px;">

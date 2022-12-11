@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+.a-balancar {
+    animation-name: a-balancar;
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation-delay: 250ms;
+    animation-duration: 750ms;
+    animation-iteration-count: initial;
+}
+
+    @keyframes a-balancar {
+        0% {transform: rotate(0deg) scale(1);}
+        50% {transform: rotate(-10deg) scale(0.9);}
+        75% {transform: rotate(10deg) scale(1.1);}
+    }
