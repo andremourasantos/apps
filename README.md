@@ -16,6 +16,13 @@ Esse site agrupa todas as ferramentas criadas por mim, bem como recursos e outro
 - - - 
 
 ## Log
+- **Atualização 2.5.6**
+    - Agora o link "André Moura Santos", no rodapé, leva para a página inicial das ferramentas, não mais para o meu site profissional.
+    - Atualizado o snippet do VS Code para criação de novas paǵinas de ferramentas.
+    - Corrigido falha em compartilhamento de link. Agora o link é compartilhado corretamente.
+    - Início do uso de JSON para agregar as informações sobre as ferramentas e, futuramente, substituir o uso dos scripts individuais com esse fim.
+    - Pequenos ajustes no tamanho da caixa das ferramentas, agora todas as caixas possuem o mesmo tamanho na visão de tablet e computador.
+
 - **Atualização 2.5.5**
     - **Gerador de QR Code (1.3.1):**
         - Corrigido erro de execução que não inicializava a função `QRCode.ParametrosURL.obter()` ao inicializar a página.

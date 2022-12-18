@@ -97,8 +97,7 @@ header > section:nth-of-type(2) {justify-content: end; align-items: center; flex
     /*↓ FERRAMENTA (BASE) ↓*/
     #ferramenta {
         background-color: var(--cor_plano_de_fundo_3);
-        max-width: 60%;
-        width: fit-content;
+        width: 300px;
         margin: auto;
         border-radius: var(--arredondamento_borda);
         padding: 10px 30px;
@@ -263,6 +262,8 @@ input[type=number]::-webkit-inner-spin-button {display: none;}
 @media screen and (max-width: 425px) {
     h1,h2 {font-size: var(--tamanho_titulo_p);}
     article.popup p {text-align: justify;}
+
+    #ferramenta {max-width: fit-content;}
 
     article.opcao_PUAU {flex-wrap: wrap; gap: 12px;}
     article.opcao_PUAU > div:first-of-type {width: 100%;}

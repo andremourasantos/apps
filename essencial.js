@@ -523,7 +523,7 @@ async function compartilharPagina() {
     const Info = {
         title: Ferramenta.Info.nome,
         text: Ferramenta.Info.descricao,
-        url: window.location.host
+        url: window.location.href
     }
 
     //PRIMEIRA OPÇÃO DE COMPARTILHAMENTO: API NAVIGATOR.SHARE()
@@ -619,3 +619,28 @@ async function compartilharPagina() {
         document.querySelector(alocacao).innerHTML += `<!-- ${nome} -->`
     }; insercao('GOOGLE TAG MANAGER', GTM.head); insercao('GOOGLE TAG MANAGER (NONSCRIPT)', GTM.body, 'noscript', 'body')
 }*/
+
+
+
+const JSONFerramentas = async () => {
+    const Info = await fetch('/ferramentas.json').then(res => res.json())
+    let id = window.location.href.split('/').slice(-1) == '' ? window.location.href.split('/').slice(-2)[0] : 'Inicial'
+    let Ferramenta = ''
+    
+    Info.forEach(obj => {if(obj.id === id){Ferramenta = obj}})
+
+    return {
+        id: Ferramenta.id,
+        nome: Ferramenta.nome,
+        descricao: Ferramenta.descrição,
+        versao: Ferramenta.versão,
+        sobre: Ferramenta.sobre,
+        PUAU: Ferramenta.PUAU,
+        novidades: Ferramenta.novidades
+    }
+};
+
+async function oi(){
+    const Info = await JSONFerramentas()
+    console.log(Info.PUAU)
+}
