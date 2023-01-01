@@ -8,9 +8,9 @@ Com esta ferramenta, você pode criar QR Estáticos para diversos fins através 
 ## O que aprendi com este projeto? 🎯
 - Procurar e ler documentações de APIs.
 - Compreender a documentação do Google Charts para criação do QR Code, observando os diferentes parâmetros e formas de interação.
-- Consumir a API do Google Charts.
-- Utilizar parâmetros de URL para realizar ações na página.
+- Usar parâmetros de URL para realizar ações na página e utilizar `encodeURIComponent` e `dencodeURIComponent` para evitar erros de leitura.
 - Utilizar JS para redimensionar elementos no HTML da página.
+- Aprendi sobre `blob` e como utilizá-lo para obter informações de imagens e convertê-las em um arquivo que o usuário possa baixar.
 
 - - -
 

@@ -11,10 +11,10 @@
         <p><strong>Navegg</strong>.</p>
         <p>Seus dados podem passar por servidores localizados fora do Brasil e podem estar sujeitos à legislação do país em questão.</p>
         <p>Ao optar por aceitar o uso de Cookies, você concorda e consente com todas as políticas de privacidade e termos de uso listados acima.</p>
-        <p>Você pode desabilitar o uso dos Cookies não essenciais a qualquer momento a partir do <span style="text-decoration: underline; cursor: pointer;" title="Abrir Painel Universal de Ajustes do Usuário." onclick="abrirPopup('popup_puau')">Painel Universal de Ajustes do Usuário</span>. As suas configurações serão sincronizadas automaticamente entre todas as páginas.</p>
+        <p>Você pode desabilitar o uso dos Cookies não essenciais a qualquer momento a partir do <span style="text-decoration: underline; cursor: pointer;" title="Abrir Painel Universal de Ajustes do Usuário." onclick="Popups.abrir('popup_puau')">Painel Universal de Ajustes do Usuário</span>. As suas configurações serão sincronizadas automaticamente entre todas as páginas.</p>
         <div class="container_btns_popup">
-            <button class="btn_popup btn_fechar_popup" onclick="abrirPopup('popup_puau')">Voltar</button>
-            <button class="btn_popup btn_acao_popup" onclick="document.querySelector('#habilitarCookies').click(); fecharPopup('popup_informacoes_cookies')">Aceitar</button>
+            <button class="btn_popup btn_fechar_popup" onclick="Popups.abrir('popup_puau')">Voltar</button>
+            <button class="btn_popup btn_acao_popup" onclick="document.querySelector('#habilitarCookies').click(); Popups.fechar()">Aceitar</button>
         </div>
     </aside>
 </article>

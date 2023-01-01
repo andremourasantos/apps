@@ -68,17 +68,15 @@
                     <i class="ph-qr-code-fill"></i>
                     <section>
                         <div>
-                            <p>Seu QRCode está pronto!</p>
+                            <p>Seu QR Code está pronto!</p>
                         </div>
                         <img src="" id="QRCode" style="width: 100%;">
                     </section>
                 </section>
-                <div id="opcoesFerramenta">
-                    <button id="criarQRCode" class="btn_acao_ferramenta">Criar QR Code</button>
-                    <div id="opcoesFerramentaSaida" style="display: none;">
-                        <button><i class="ph-download-simple-bold"></i></button>
-                        <button><i class="ph-share-network-fill"></i></button>
-                    </div>
+                <div class="container_btns_popup" style="margin: 20px auto;">
+                    <button id="criarQRCode" class="btn_popup btn_acao_popup">Criar QR Code</button>
+                    <button class="btn_menu_icone" title="Baixar QR Code" style="display: none;" id="baixarQRCode"><i class="ph-download-simple-bold"></i></button>
+                    <button class="btn_menu_icone" title="Compartilhar QR Code" style="display: none;" id="compartilharQRCode"><i class="ph-share-network-fill"></i></button>
                 </div>
             </div>
         </section>
@@ -89,15 +87,6 @@
 
 <!--POPUPS-->
 <section style="display: none;" id="container_popup">
-    <!--MINI NOTIFICAÇÕES-->
-    <!--ERRO-->
-    <article class="minipopup" id="popup_erro" style="display: none;">
-        <img src="/imagens/erro_popup.png" alt="" height="96" width="96">
-        <div>
-            <h3>Ops, algo está faltando!</h3>
-            <p>Confira as informações inseridas.</p>
-        </div>
-    </article>
 </section>
 </body>
 </html>

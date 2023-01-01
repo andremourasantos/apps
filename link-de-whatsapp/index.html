@@ -72,7 +72,8 @@
 
                 <div class="container_btns_popup">
                     <button id="obter_link_btn" class="btn_popup btn_acao_popup">Obter link</button>
-                    <button id="copiar_link_btn" class="btn_menu_icone" style="display: none;" title="Copiar para área de transferência" onclick="copiarLink()"><i class="ph-clipboard-text-fill"></i></button>
+                    <button id="gerar_QRCode" class="btn_menu_icone" style="display: none;" title="Gerar QR Code"><i class="ph-qr-code-fill"></i></button>
+                    <button id="copiar_link_btn" class="btn_menu_icone" style="display: none;" title="Copiar para área de transferência"><i class="ph-clipboard-text-fill"></i></button>
                 </div>
             </article>
         </section>
@@ -99,6 +100,9 @@
             <div>
                 <h3>Ops, algo deu errado...</h3>
                 <p>Por favor, recarregue a página.</p>
+            </div>
+            <div class="container_btns_popup">
+                <button class="btn_popup btn_fechar_popup" onclick="Popups.fechar()">Continuar</button>
             </div>
         </article>
     </section>

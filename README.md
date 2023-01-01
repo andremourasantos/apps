@@ -6,19 +6,35 @@ Esse site agrupa todas as ferramentas criadas por mim, bem como recursos e outro
 - - - 
 
 ## O que aprendi com esse projeto? 🎯
+- Uso de `CSS` e `Java Script` para executar animações simples.
 - Criação de código moldular e reutilizável.
-- Uso de try-catch statments para fallback actions.
-- Uso do fetch para recolher, moldar e inserir snippets HTML na página.
-- Criação de interações do usuário para com o compartamento da página (painel PUAU).
-- Conceito de divisão de grandes projetos em fragmentos para facilitar a execução.
-- Animações simples em CSS e JavaScript.
+- Documentação de código em JSDocs.
+- Uso e consumo de APIs.
+- Uso da API `fetch` para adquirir, moldar e utilizar informações de terceiros ou proprietárias na página.
+- Criação de formas de interação do usuário para modificar o comportamento da página de maneira persistente (Painel Universal de Ajustes do Usuário).
+- Conceito de divisão de grandes projetos em fragmentos menores, independentes e interoperáveis para facilitação da criação e manutenção do mesmo.
+- Uso do `git` e comandos como `git stash`,  `git branch` e `git add` para salvar, monitorar e recuperar o meu progresso.
+- Utilização de arquivos `JSON` para armazenamento e coleta de informações facilmente.
 
 - - - 
 
 ## Log
+- **Atualização 3.0**
+    -  **Link de WhatsApp (2.3)**
+        - Agora é possível criar um QR Code do link gerado facilmente com o atalho da ferramenta de Gerador de QR Code embutido na página.
+        - O popup de erro é exibido ao tentar copiar para área de transfêrencia sem sucesso.
+        - Agora o campo de "mensagem" também fica salvo para futuras visitas.
+    - **Gerador de QR Code (1.4)**
+        - Agora é possível baixar o QR Code gerado como uma imagem PNG ou compartilhá-lo através da API `navigator.share`.
+        - Atualizado a forma de identificação dos parâmetros da URL. Mais informações no script.
+    - Adicionada documentação em formato `JSDocs` para algumas funções no código.
+    - Adicionados os arquivos `robots.txt`, `sitemap.xml` e `LICENSE`.
+    - Finalização do uso do JSON para agregar e obter as informações sobre as ferramentas.
+    - Otimização geral do código.
+
 - **Atualização 2.5.6**
     - Agora o link "André Moura Santos", no rodapé, leva para a página inicial das ferramentas, não mais para o meu site profissional.
-    - Atualizado o snippet do VS Code para criação de novas paǵinas de ferramentas.
+    - Atualizado o snippet do VS Code para criação de novas páginas de ferramentas.
     - Corrigido falha em compartilhamento de link. Agora o link é compartilhado corretamente.
     - Início do uso de JSON para agregar as informações sobre as ferramentas e, futuramente, substituir o uso dos scripts individuais com esse fim.
     - Pequenos ajustes no tamanho da caixa das ferramentas, agora todas as caixas possuem o mesmo tamanho na visão de tablet e computador.

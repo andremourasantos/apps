@@ -1,10 +1,17 @@
 [
     {
-        "id": "gerador-de-qrcode",
-        "nome": "Gerador de QR Code",
-        "descrição": "Crie QR Codes estáticos facilmente.",
-        "versão": "1.3.1",
-        "sobre": "Este projeto utiliza a API do Google para criar QR Codes estáticos de validade ilimitada. Seu pedido é enviado e então o QR Code é gerado e exibido nesta página. Seu pedido não é salvo em nenhuma instância pela API do Google.",
+        "id": "geral",
+        "novidades": [
+            ["Compartilhe facilmente", "Está mais fácil do que nunca compartilhar a página, basta clicar no <span class=\"interacao\" onclick=\"compartilharPagina()\" title=\"Compartilhar página\">novo ícone de compartilhar</span> no cabeçalho da página!"],
+            ["Otimização de código", "O trabalho por de trás dos panos está cada vez mais eficiente e moderno, isso ajuda a página funcionar melhor."]
+        ]
+    },
+    {
+        "id": "inicial",
+        "nome": "Ferramentas de André",
+        "descrição": "Aplicativos para facilitar o seu dia-a-dia.",
+        "versão": "3.0",
+        "sobre": "Nesta página você poderá ver todos os projetos que desenvolvi para aprimorar minhas habilidades com o desenvolvimento web. Todas as ferrametnas são de livre acesso e sem anúncios.",
         "PUAU": {
             "acessibilidadeFonte":1,
             "salvarDados":0,
@@ -13,29 +20,7 @@
             "habilitarCookies":0
         },
         "novidades": [
-            ["Acessibilidade","Você agora pode selecionar uma fonte para facilitar a leitura da tela no Painel Universal de Ajustes do Usuário."],
-            ["Parâmetros de URL","Agora você pode fazer requisições via parâmetros na URL da ferramenta! Confira o GitHub para mais informações."]
-        ]
-    },
-    {
-        "id": "link-de-whatsapp",
-        "nome": "Link de WhatsApp",
-        "descrição": "Crie links facilmente.",
-        "versão": "2.2",
-        "sobre": "O objetivo desse projeto é proporcionar uma ferramenta útil e de livre acesso para criar links de WhatsApp sem propaganda, com foco exclusivo no Brasil.",
-        "PUAU": {
-            "acessibilidadeFonte":1,
-            "salvarDados":2,
-            "sincronizarTema":2,
-            "temaDoDispositivo":1,
-            "habilitarCookies":0
-        },
-        "novidades": [
-            ["Acessibilidade","Você agora pode selecionar uma fonte para facilitar a leitura da tela no Painel Universal de Ajustes do Usuário."],
-            ["Conheça o PUAU","O novo Painel Universal de Ajustes do Usuário está disponvível agora nesta página! Com ele você pode salvar suas preferências de uso e muito mais."],
-            ["Melhorias de leitura","Agora o número de telefone digitado é formatado de maneira a facilitar a sua leitura."],
-            ["Melhorias na usabilidade","A ferramenta adaptará a exibição das entradas, proporcionando uma experiência de uso mais direta."],
-            ["Tema da página sincronizado","Agora, o tema que você escolher para esta página será sincronizado com todas as outras ferramentas que suportam essa função."]
+            
         ]
     },
     {
@@ -56,11 +41,11 @@
         ]
     },
     {
-        "id": "Inicial",
-        "nome": "Ferramentas de André",
-        "descrição": "Aplicativos para facilitar o seu dia-a-dia.",
-        "versão": "2.3",
-        "sobre": "Nesta página você poderá ver todos os projetos que desenvolvi para aprimorar minhas habilidades com o desenvolvimento web. Todas as ferrametnas são de livre acesso e sem anúncios.",
+        "id": "gerador-de-qrcode",
+        "nome": "Gerador de QR Code",
+        "descrição": "Crie QR Codes estáticos facilmente.",
+        "versão": "1.4",
+        "sobre": "Este projeto utiliza a API do Google para criar QR Codes estáticos de validade ilimitada. Seu pedido é enviado e então o QR Code é gerado e exibido nesta página. Seu pedido não é salvo em nenhuma instância pela API do Google.",
         "PUAU": {
             "acessibilidadeFonte":1,
             "salvarDados":0,
@@ -69,7 +54,27 @@
             "habilitarCookies":0
         },
         "novidades": [
-            []
+            ["Salve seu QR Code", "Você pode baixar seu QR Code como PNG para utilizá-lo onde quiser."],
+            ["Compartilhe seu QR Code", "Utilize o botão de compartilhar para enviar o QR Code gerado rapidamente."],
+            ["Parâmetros de URL","Agora você pode fazer requisições via parâmetros na URL da ferramenta! Confira o GitHub para mais informações."]
+        ]
+    },
+    {
+        "id": "link-de-whatsapp",
+        "nome": "Link de WhatsApp",
+        "descrição": "Crie links facilmente.",
+        "versão": "2.3",
+        "sobre": "O objetivo desse projeto é proporcionar uma ferramenta útil e de livre acesso para criar links de WhatsApp sem propaganda, com foco exclusivo no Brasil.",
+        "PUAU": {
+            "acessibilidadeFonte":1,
+            "salvarDados":2,
+            "sincronizarTema":2,
+            "temaDoDispositivo":1,
+            "habilitarCookies":0
+        },
+        "novidades": [
+            ["Gerador de QR Code","Você agora pode facilmente criar um QR Code para o Link de WhatsApp criado com o apertar de um botão!"],
+            ["Mensagens salvas","Agora a mensagem que você escreveu também ficará salva caso você habilite a função de <em>Salvar dados da seção</em> no Painel Universal de Ajustes do Usuário."]
         ]
     }
 ]
