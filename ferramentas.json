@@ -24,6 +24,23 @@
         ]
     },
     {
+        "id": "conversor-de-distancia",
+        "nome": "Conversor de distância",
+        "descrição": "Converta distâncias facilmente.",
+        "versão": "1.0",
+        "sobre": "",
+        "PUAU": {
+            "acessibilidadeFonte":1,
+            "salvarDados":0,
+            "sincronizarTema":2,
+            "temaDoDispositivo":1,
+            "habilitarCookies":0
+        },
+        "novidades": [
+            
+        ]
+    },
+    {
         "id": "gerador-de-lorem-ipsum",
         "nome": "Gerador de Lorem Ipsum",
         "descrição": "Textos genéricos para seus protótipos.",
