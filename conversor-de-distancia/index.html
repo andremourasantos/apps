@@ -3,11 +3,11 @@
 <head>
     <!-- SEO TAGS -->
     <meta property="og:title" content="Conversor de distância">
-    <meta property="og:description" content="">
-    <meta name="description"  content="">
+    <meta property="og:description" content="Converta distâncias facilmente.">
+    <meta name="description"  content="Converta distâncias facilmente.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="apps.andremourasantos.com">
-    <meta name="image" property="og:image" content="">
+    <meta name="image" property="og:image" content="https://apps.andremourasantos.com/conversor-de-distancia/capa.png">
 
     <!-- OUTRAS TAGS -->
     <meta charset="UTF-8">
@@ -23,7 +23,8 @@
 
     <!-- LINKS -->
     <link rel="stylesheet" href="/universal.css">
-    <link rel="shortcut icon" href="" type="image/png">
+    <link rel="stylesheet" href="index.css">
+    <link rel="shortcut icon" href="logo.png" type="image/png">
 
     <!--SCRIPTS-->
     <script defer src="https://unpkg.com/phosphor-icons"></script>
@@ -33,50 +34,50 @@
     <title>Conversor de distância</title>
 </head>
 <body>
-    <header>
-    </header>
-    <main>
-        <!--ESQUERDA/CIMA-->
-        <section id="container_ferramenta">
-            <div id="ferramenta">
-                <section class="ferramenta_entrada">
-                    <i class="ph-ruler-fill"></i>
-                    <section>
-                        <p>Distância a converter:</p>
+<header>
+</header>
+<main>
+    <section id="container_ferramenta">
+        <div id="ferramenta">
+            <section class="ferramenta_entrada">
+                <i class="ph-ruler-fill"></i>
+                <section>
+                    <p>Distância a converter:</p>
+                    <div>
                         <div>
                             <input type="number" id="distancia" placeholder="100" autocomplete="off" min="0" step="1" value="0">
                             <select id="unidadeDeMedida">
-                                <option value="km">km</option>
-                                <option value="mi">mi</option>
-                                <option value="ft">ft</option>
-                                <option value="nm">nm</option>
-                                <option value="m">m</option>
-                            </select>
-                            <select id="unidadeDeConversao">
-                                <option value="km" disabled>km</option>
-                                <option value="mi">mi</option>
-                                <option value="ft">ft</option>
-                                <option value="nm">nm</option>
-                                <option value="m">m</option>
+                                <option value="km" title="Quilômetros">km</option>
+                                <option value="mi" title="Milhas">mi</option>
+                                <option value="ft" title="Pés">ft</option>
+                                <option value="nm" title="Milhas náuticas">nm</option>
+                                <option value="m" title="Metros">m</option>
                             </select>
                         </div>
-                    </section>
+                        <select id="unidadeDeConversao">
+                            <option value="km" disabled title="Não disponível">Converter para km</option>
+                            <option value="mi">Converter para mi</option>
+                            <option value="ft">Converter para ft</option>
+                            <option value="nm">Converter para nm</option>
+                            <option value="m">Converter para m</option>
+                        </select>
+                    </div>
                 </section>
+            </section>
 
-                <input type="text" id="saida" placeholder="Insira um valor para inicar..." autocomplete="off" disabled>
+            <input type="text" id="saida" placeholder="Insira um valor para inicar..." autocomplete="off" disabled>
 
-                <div class="container_btns_popup" style="margin: 20px auto;">
-                    <button id="converter" class="btn_popup btn_acao_popup">Converter</button>
-                </div>
+            <div class="container_btns_popup" style="margin: 20px auto;">
+                <button id="converter" class="btn_popup btn_acao_popup">Converter</button>
             </div>
-        </section>
-    </main>
-    <footer>
-    </footer>
+        </div>
+    </section>
+</main>
+<footer>
+</footer>
 
 <!--POPUPS-->
 <section style="display: none;" id="container_popup">
-    
 <section>
 </body>
 </html>

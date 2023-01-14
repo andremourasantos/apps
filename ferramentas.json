@@ -28,7 +28,7 @@
         "nome": "Conversor de distância",
         "descrição": "Converta distâncias facilmente.",
         "versão": "1.0",
-        "sobre": "",
+        "sobre": "Com o conversor de distância, você pode facilmente conveter entre algumas das medidas de distãncia mais populares no mundo. Basta inserir o valor número, a unidade de medida e, então, a unidade para o qual deseja converter.",
         "PUAU": {
             "acessibilidadeFonte":1,
             "salvarDados":0,

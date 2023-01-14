@@ -27,7 +27,7 @@ const CONVERSOES = {
         m: (distancia) => {return distancia * 1852}
     },
     M: {
-        km: (distancia) => {return distancia * 1000},
+        km: (distancia) => {return distancia / 1000},
         mi: (distancia) => {return distancia / 1609.34},
         ft: (distancia) => {return distancia * 3.28083989501312},
         nm: (distancia) => {return distancia / 1852}
@@ -38,20 +38,29 @@ const CONVERSOES = {
 const FERRAMENTA = {
     botao: document.querySelector('#converter'),
     saida: document.querySelector('#saida'),
-    converter: () => {
+    converter: async () => {
         const distancia = document.querySelector('#distancia').value
         const unidadeDeMedida = document.querySelector('#unidadeDeMedida').value.toUpperCase()
         const unidadeDeConversao = document.querySelector('#unidadeDeConversao').value
 
+        if(unidadeDeConversao === unidadeDeMedida.toLowerCase()){
+            await importarPedacos('importarPopupErro')
+            Popups.Minipopups.abrir('popup_noti_erro', 'Ops, algo está errado!', 'Você está tentando converter duas unidades de distância iguais.')
+            return
+        }
+
         let valor = new Intl.NumberFormat().format(CONVERSOES[unidadeDeMedida][unidadeDeConversao](distancia))
 
-        FERRAMENTA.saida.value = `${valor} ${unidadeDeConversao}`
+        FERRAMENTA.saida.value = `${distancia} ${unidadeDeMedida.toLowerCase()} é igual a ${valor} ${unidadeDeConversao}`
     },
     atualizarSeletores: () => {
         const seletoresUnidadeDeConversao = Array.from(document.querySelector('#unidadeDeConversao').childNodes).filter(elemento => {return elemento.nodeName == 'OPTION'})
 
         for(elemento of seletoresUnidadeDeConversao){
-            if(elemento.value == document.querySelector('#unidadeDeMedida').value){elemento.setAttribute('disabled', 'disabled')} else {elemento.removeAttribute('disabled')}
+            if(elemento.value == document.querySelector('#unidadeDeMedida').value){
+                elemento.setAttribute('disabled', 'disabled')
+                elemento.setAttribute('title', 'Não disponível')
+            } else {elemento.removeAttribute('disabled'); elemento.removeAttribute('title')}
         }
     }
 }

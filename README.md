@@ -19,6 +19,11 @@ Esse site agrupa todas as ferramentas criadas por mim, bem como recursos e outro
 - - - 
 
 ## Log
+- **Atualização 3.1**
+    - Agora as informações das ferramentas na página inicial são coletados do arquivo `ferramentas.json`.
+    - Nova ferramenta: [Conversor de distância](https://apps.andremourasantos.com/conversor-de-distancia)!
+    - Otimização de código.
+
 - **Atualização 3.0**
     -  **Link de WhatsApp (2.3)**
         - Agora é possível criar um QR Code do link gerado facilmente com o atalho da ferramenta de Gerador de QR Code embutido na página.
